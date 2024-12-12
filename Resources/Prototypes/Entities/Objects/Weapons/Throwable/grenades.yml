@@ -211,6 +211,9 @@
     guides:
     - Security
     - Antagonists
+  - type: Construction
+    graph: RevolutionaryFlashbangGraph
+    node: start
   - type: Flashbang # Goobstation
   - type: Tag
     tags:

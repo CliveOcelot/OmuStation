@@ -187,7 +187,8 @@ namespace Content.Server.Flash
             float slowTo,
             bool displayPopup = true,
             bool melee = false,
-            TimeSpan? stunDuration = null)
+            TimeSpan? stunDuration = null,
+            bool revFlash = false)
         {
             // Goob edit start
             if (used == null
@@ -229,7 +230,7 @@ namespace Content.Server.Flash
                     ("user", Identity.Entity(user.Value, EntityManager))), target, target);
             }
 
-            if (melee)
+            if (melee || revFlash)
             {
                 var ev = new AfterFlashedEvent(target, user, used);
                 if (user != null)
@@ -265,6 +266,35 @@ namespace Content.Server.Flash
 
                 var distance = (mapPosition.Position - _transform.GetMapCoordinates(entity).Position).Length(); // Goobstation
                 RaiseLocalEvent(source, new AreaFlashEvent(range, distance, entity)); // Goobstation
+            }
+
+            _audio.PlayPvs(sound, source, AudioParams.Default.WithVolume(1f).WithMaxDistance(3f));
+        }
+
+        // funkystation: copy and paste of above, cry about it
+        public void RevolutionaryFlashArea(Entity<FlashComponent?> source, EntityUid? user, float range, float duration, float slowTo = 0.8f, bool displayPopup = false, float probability = 1f, SoundSpecifier? sound = null)
+        {
+            var transform = Transform(source);
+            var mapPosition = _transform.GetMapCoordinates(transform);
+            var statusEffectsQuery = GetEntityQuery<StatusEffectsComponent>();
+            var damagedByFlashingQuery = GetEntityQuery<DamagedByFlashingComponent>();
+
+            foreach (var entity in _entityLookup.GetEntitiesInRange(transform.Coordinates, range))
+            {
+                if (!_random.Prob(probability))
+                    continue;
+
+                // Is the entity affected by the flash either through status effects or by taking damage?
+                if (!statusEffectsQuery.HasComponent(entity) && !damagedByFlashingQuery.HasComponent(entity))
+                    continue;
+
+                // Check for entites in view
+                // put damagedByFlashingComponent in the predicate because shadow anomalies block vision.
+                if (!_examine.InRangeUnOccluded(entity, mapPosition, range, predicate: (e) => damagedByFlashingQuery.HasComponent(e)))
+                    continue;
+
+                // They shouldn't have flash removed in between right?
+                Flash(entity, user, source, duration, slowTo, displayPopup, true, null, true);
             }
 
             _audio.PlayPvs(sound, source, AudioParams.Default.WithVolume(1f).WithMaxDistance(3f));
