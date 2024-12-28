@@ -7,9 +7,8 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-revolutionaries-lose-announcement-shuttle-call = Based on scans from our long-range sensors, the enemy revolutionary cells on the station have been suppressed and neutralized.
-revolutionaries-lose-announcement = Based on scans from our long-range sensors, the enemy revolutionary cells on the station have been suppressed and neutralized.
-
+revolutionaries-lose-announcement-shuttle-call = Based on data from our long-range sensors, the enemy revolutionary cells on the station have been suppressed and neutralized. An evacuation shuttle has been called, ETA: {$time} {$units}.
+revolutionaries-lose-announcement = Based on data from our long-range sensors, the enemy revolutionary cells on the station have been suppressed and neutralized.
 revolutionaries-win-announcement-shuttle-call =
     According to the leader's reports, the corporate command has been overthrown and we have seized control of the station.
 
