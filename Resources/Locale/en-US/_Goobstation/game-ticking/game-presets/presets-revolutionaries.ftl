@@ -20,4 +20,4 @@ revolutionaries-win-announcement =
     Viva la revolution!
 
 revolutionaries-win-sender = Cybersun Communications
-revolutionaries-sender-cc = Nanotrasen Loyalty Division
+revolutionaries-sender-cc = Central Command
