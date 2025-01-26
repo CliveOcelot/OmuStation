@@ -188,15 +188,6 @@
 
 - type: entity
   parent: ClothingNeckBase
-  id: ClothingNeckCloakTrans
-  name: vampire cloak
-  description: Worn by high ranking vampires of the transylvanian society of vampires.
-  components:
-  - type: Sprite
-    sprite: Clothing/Neck/Cloaks/trans.rsi
-
-- type: entity
-  parent: ClothingNeckBase
   id: ClothingNeckCloakGoliathCloak
   name: goliath cloak
   description: A cloak made from the hide of resilient fauna from a distant planet. #Goobstation
@@ -274,11 +265,22 @@
   - type: TypingIndicatorClothing
     proto: alien
 
+## Changed by Funkystation.
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckCloakTrans
+  name: transgender pride cloak
+  description: A cloak representing transgender pride.
+  components:
+  - type: Sprite
+    sprite: Clothing/Neck/Cloaks/trans.rsi
+
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckCloakAce
-  name: pilot's cloak
-  description: Cloak awarded to Nanotrasen's finest space aces.
+  name: asexual pride cloak
+  description: A cloak representing asexual pride.
   components:
   - type: Sprite
     sprite: Clothing/Neck/Cloaks/ace.rsi
@@ -286,8 +288,8 @@
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckCloakAro
-  name: werewolf cloak
-  description: This cloak lets others know you're a lone wolf.
+  name: aromantic pride cloak
+  description: A cloak representing aromantic pride.
   components:
   - type: Sprite
     sprite: Clothing/Neck/Cloaks/aro.rsi
@@ -304,8 +306,8 @@
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckCloakBi
-  name: poison cloak
-  description: The purple color is a clear indicator you are poisonous.
+  name: bisexual pride cloak
+  description: A cloak representing bisexual pride.
   components:
   - type: Sprite
     sprite: Clothing/Neck/Cloaks/bi.rsi
@@ -313,8 +315,8 @@
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckCloakIntersex
-  name: cyclops cloak
-  description: The circle on this cloak represents a cyclops' eye.
+  name: intersex pride cloak
+  description: A cloak representing intersex pride.
   components:
   - type: Sprite
     sprite: Clothing/Neck/Cloaks/intersex.rsi
@@ -322,8 +324,8 @@
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckCloakLesbian
-  name: poet cloak
-  description: This cloak belonged to an ancient poet, you forgot which one.
+  name: lesbian pride cloak
+  description: A cloak representing lesbian pride.
   components:
   - type: Sprite
     sprite: Clothing/Neck/Cloaks/les.rsi
@@ -331,8 +333,8 @@
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckCloakGay
-  name: multi-level marketing cloak
-  description: This cloak is highly sought after in the Nanotrasen Marketing Offices.
+  name: gay pride cloak
+  description: A cloak representing gay pride.
   components:
   - type: Sprite
     sprite: Clothing/Neck/Cloaks/gay.rsi
@@ -340,8 +342,8 @@
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckCloakEnby
-  name: treasure hunter cloak
-  description: This cloak belonged to a greedy treasure hunter.
+  name: non-binary pride cloak
+  description: A cloak representing non-binary pride.
   components:
   - type: Sprite
     sprite: Clothing/Neck/Cloaks/enby.rsi
@@ -349,8 +351,8 @@
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckCloakPan
-  name: chef's cloak
-  description: Meant to be worn alongside a frying pan.
+  name: pansexual pride cloak
+  description: A cloak representing pansexual pride.
   components:
   - type: Sprite
     sprite: Clothing/Neck/Cloaks/pan.rsi
