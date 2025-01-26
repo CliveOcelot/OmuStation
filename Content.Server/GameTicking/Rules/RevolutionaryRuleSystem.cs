@@ -128,6 +128,29 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
     {
         base.ActiveTick(uid, component, gameRule, frameTime);
 
+        if (component.RevLossTimerActive && !component.RevForceLose)
+        {
+            var headRevList = GetHeadRevs();
+
+            if (!IsGroupDetainedOrDead(headRevList, true, false))
+            {
+                component.RevLossTimerActive = false;
+
+                for (int i = 0; i < headRevList.Count; i++)
+                {
+                    _popup.PopupEntity(Loc.GetString("rev-headrev-returned"), headRevList[i], headRevList[i]);
+                }
+            }
+            else if (component.RevLoseTime <= _timing.CurTime)
+            {
+                component.RevForceLose = true;
+                for (int i = 0; i < headRevList.Count; i++)
+                {
+                    _popup.PopupEntity(Loc.GetString("rev-headrev-abandoned"), headRevList[i], headRevList[i]);
+                }
+            }
+        }
+
         // funkystation
         if (component.RevVictoryEndTime != null && _timing.CurTime >= component.RevVictoryEndTime)
         {
@@ -158,6 +181,8 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
 
             if (CheckRevsLose() && !component.HasAnnouncementPlayed)
             {
+                DeconvertAllRevs();
+
                 _roundEnd.DoRoundEndBehavior(RoundEndBehavior.ShuttleCall,
                     component.ShuttleCallTime,
                     textCall: "revolutionaries-lose-announcement-shuttle-call",
@@ -305,13 +330,14 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
     private void OnHeadRevMobStateChanged(EntityUid uid, HeadRevolutionaryComponent comp, MobStateChangedEvent ev)
     {
         if (ev.NewMobState == MobState.Dead || ev.NewMobState == MobState.Invalid)
-            CheckRevsLose();
+            if (CheckRevsLose())
+                DeconvertAllRevs();
     }
 
     /// <summary>
-    /// Checks if all the Head Revs are dead and if so will deconvert all regular revs.
+    /// Funky Station - yeah
     /// </summary>
-    private bool CheckRevsLose(bool deconvertRevs = true) // this should have been just a simple check w no logic
+    private void DeconvertAllRevs()
     {
         var stunTime = TimeSpan.FromSeconds(4);
         var headRevList = new List<EntityUid>();
@@ -342,7 +368,7 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
                     continue;
 
                 _npcFaction.RemoveFaction(uid, RevolutionaryNpcFaction);
-                _stun.TryParalyze(uid, stunTime, true);
+                _stun.TryParalyze(uid, stunTime, true); // todo: use gamerule
                 RemCompDeferred<RevolutionaryComponent>(uid);
                 _popup.PopupEntity(Loc.GetString("rev-break-control", ("name", Identity.Entity(uid, EntityManager))), uid);
                 _adminLogManager.Add(LogType.Mind, LogImpact.Medium, $"{ToPrettyString(uid)} was deconverted due to all Head Revolutionaries dying.");
@@ -362,10 +388,71 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
                 if (_player.TryGetSessionById(mind.UserId, out var session))
                     _euiMan.OpenEui(new DeconvertedEui(), session);
             }
+        }
+    }
+    /// <summary>
+    /// Checks if all the Head Revs are dead and if so will deconvert all regular revs.
+    /// </summary>
+    private bool CheckRevsLose() // this should have been just a simple check w no logic
+    {
+        var query = QueryActiveRules();
+        while (query.MoveNext(out var uid, out _, out var revolutionary, out _))
+        {
+            if (revolutionary.RevForceLose)
+                return true;
+        }
+
+        var headRevList = GetHeadRevs();
+
+        // If no Head Revs are alive all normal Revs will lose their Rev status and rejoin Nanotrasen
+        // Cuffing Head Revs is not enough - they must be killed.
+        if (IsGroupDetainedOrDead(headRevList, false, false))
+        {
             return true;
         }
 
+        // If Head Revs are all dead OR off station, start the timer
+        if (IsGroupDetainedOrDead(headRevList, true, false))
+        {
+            query = QueryActiveRules();
+            while (query.MoveNext(out var uid, out _, out var revolutionary, out _))
+            {
+                //Do not set this timer again if the last one is still running.
+                if (revolutionary.RevLossTimerActive)
+                    return false;
+
+                //Start the loss timer, can be reset in ActiveTick if a Head Rev returns to station alive.
+                revolutionary.RevLossTimerActive = true;
+                revolutionary.RevLoseTime = _timing.CurTime + revolutionary.OffStationTimer;
+            }
+
+            for (int i = 0; i < headRevList.Count; i++)
+            {
+                if (_stationSystem.GetOwningStation(headRevList[i]) == null)
+                {
+                    _popup.PopupEntity(Loc.GetString("rev-headrev-must-return"), headRevList[i], headRevList[i]); //Popup that the Head Rev must return to the station
+                }
+            }
+
+            return false;
+        }
+
         return false;
+    }
+
+    private List<EntityUid> GetHeadRevs()
+    {
+        var headRevList = new List<EntityUid>();
+
+        var headRevs = AllEntityQuery<HeadRevolutionaryComponent, MobStateComponent>();
+        while (headRevs.MoveNext(out var uid, out var headRevComp, out _)) // GoobStation - headRevComp
+        {
+            // GoobStation - Checking if headrev ability is enabled to count them
+            if (headRevComp.ConvertAbilityEnabled)
+                headRevList.Add(uid);
+        }
+
+        return headRevList;
     }
 
     // goob edit - no shuttle call until internal affairs are figured out
@@ -396,7 +483,7 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
     // funky station
     public void OnTryShuttleDock(ref ShuttleDockAttemptEvent ev)
     {
-        if (!CheckRevsLose(false))
+        if (!CheckRevsLose())
         {
             ev.Cancelled = true;
             ev.CancelMessage = Loc.GetString("shuttle-dock-fail-revs");
