@@ -137,6 +137,12 @@ using Content.Server.Codewords;
 
 namespace Content.Server.GameTicking.Rules;
 
+/// <summary>
+/// :trollface:
+/// Hi, tay here.
+/// The goob folk also said that this is heavily edited. I'm here to say the same thing as well!
+/// Take care now!
+/// </summary>
 // goobstation - heavily edited.
 // do not touch unless you want to shoot yourself in the leg
 public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
