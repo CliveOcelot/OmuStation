@@ -386,6 +386,7 @@
     selectionTime: IntraPlayerSpawn # Goobstation
     definitions:
     - prefRoles: [ HeadRev ]
+      min: 2
       max: 3
       playerRatio: 15
       blacklist:
