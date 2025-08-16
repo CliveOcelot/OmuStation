@@ -22,6 +22,7 @@ revolutionaries-win-announcement =
 revolutionaries-win-sender = Cybersun Communications
 revolutionaries-sender-cc = Central Command
 
+revolutionaries-open-revolt-confirmation = THIS ACTION WILL REVEAL ALL HEAD REVS! Use it again to confirm.
 revolutionaries-open-revolt-rev-popup = Open Revolt has been declared! Viva la revolución!
 revolutionaries-open-revolt-announcement =
     We have detected a psionic declaration of Open Revolt aboard the station by active revolutionary cells.
