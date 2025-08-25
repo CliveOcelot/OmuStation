@@ -16,9 +16,18 @@ public sealed class FeroxiDehydrateSystem : EntitySystem
 
     public override void Update(float frameTime)
     {
-        while (EntityQueryEnumerator<FeroxiDehydrateComponent, ThirstComponent>()
-            .MoveNext(out var uid, out var feroxiDehydrate, out var thirst))
-            UpdateDehydrationStatus((uid, feroxiDehydrate), thirst.CurrentThirst <= feroxiDehydrate.DehydrationThreshold);
+        var query = EntityQueryEnumerator<FeroxiDehydrateComponent, ThirstComponent>();
+
+        while (query.MoveNext(out var uid, out var feroxiDehydrate, out var thirst))
+        {
+            var currentThirst = thirst.CurrentThirst;
+            var shouldBeDehydrated = currentThirst <= feroxiDehydrate.DehydrationThreshold;
+
+            if (feroxiDehydrate.Dehydrated != shouldBeDehydrated)
+            {
+                UpdateDehydrationStatus((uid, feroxiDehydrate), shouldBeDehydrated);
+            }
+        }
     }
 
     /// <summary>
