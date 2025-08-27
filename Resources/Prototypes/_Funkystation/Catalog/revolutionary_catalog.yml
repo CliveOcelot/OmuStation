@@ -42,6 +42,7 @@
 
 - type: listing
   id: RevolutionaryUplinkFastDrawImplanter
+  icon: { sprite: _Goobstation/Objects/Specific/Medical/revs_implanter.rsi, state: implanter0 }
   name: fast draw implanter
   description: A syringe with tools for quick implant removal. It has small gold stars on its body.
   productEntity: RevsFastDrawImplanter
