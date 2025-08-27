@@ -132,7 +132,7 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
         {
             var headRevList = GetHeadRevs();
 
-            if (!IsGroupDetainedOrDead(headRevList, true, false))
+            if (!IsGroupDetainedOrDead(headRevList, true, false, false))
             {
                 component.RevLossTimerActive = false;
 
@@ -357,10 +357,10 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
             var rev = AllEntityQuery<RevolutionaryComponent, MindContainerComponent>();
 
             // ts so nasty 💔
-            if (!deconvertRevs)
-            {
-                return true;
-            }
+//            if (!deconvertRevs) // Omu, don't know what this is meant to do, but its broken.
+//            {
+//                return true;
+//            }
 
             while (rev.MoveNext(out var uid, out _, out var mc))
             {
@@ -406,13 +406,13 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
 
         // If no Head Revs are alive all normal Revs will lose their Rev status and rejoin Nanotrasen
         // Cuffing Head Revs is not enough - they must be killed.
-        if (IsGroupDetainedOrDead(headRevList, false, false))
+        if (IsGroupDetainedOrDead(headRevList, false, false, false))
         {
             return true;
         }
 
         // If Head Revs are all dead OR off station, start the timer
-        if (IsGroupDetainedOrDead(headRevList, true, false))
+        if (IsGroupDetainedOrDead(headRevList, true, false, false))
         {
             query = QueryActiveRules();
             while (query.MoveNext(out var uid, out _, out var revolutionary, out _))
