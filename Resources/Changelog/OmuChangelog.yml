@@ -95,3 +95,23 @@ Entries:
         backpacks under neck clothing items instead of above.
   id: 11
   time: '2025-08-27T06:58:22.0000000+00:00'
+- author: Orion-416
+  changes:
+    - type: Add
+      message: >-
+        Gave harpy more emotes (Namely most of the IPC emotes, along with Weh
+        and Hew)
+    - type: Fix
+      message: Fixed certain harpy emotes
+  id: 12
+  time: '2025-08-27T12:13:08.0000000+00:00'
+- author: Orion-416
+  changes:
+    - type: Add
+      message: >-
+        Added a "antag round token", which allows you to select the main antag
+        for a round (Ex: nukeops)
+    - type: Tweak
+      message: Changed mentions of goobcoin to EggCoin
+  id: 13
+  time: '2025-08-27T12:14:37.0000000+00:00'
