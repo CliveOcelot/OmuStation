@@ -74,6 +74,8 @@ using System.Threading;
 using Content.Goobstation.Shared.Revolutionary;
 using Content.Server.Chat.Systems;
 using Content.Server.PDA.Ringer;
+using Content.Shared.PDA.Ringer;
+using Content.Shared.PDA;
 using Content.Server.Traitor.Uplink;
 using Robust.Shared.Player;
 
@@ -162,8 +164,10 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
         _antag.SendBriefing(traitor, Loc.GetString("head-rev-role-greeting"), Color.Red, null);
 
         if (_role.MindHasRole<RevolutionaryRoleComponent>(mindId, out var revRoleComp))
-            AddComp(revRoleComp.Value, new RoleBriefingComponent { Briefing = Loc.GetString("head-rev-briefing", ("code", string.Join("-", code).Replace("sharp", "#"))) }, overwrite: true);
-
+            if (code != null) // Omu, if this is null something has gone wrong.
+                AddComp(revRoleComp.Value, new RoleBriefingComponent { Briefing = Loc.GetString("head-rev-briefing", ("code", string.Join("-", code).Replace("sharp", "#"))) }, overwrite: true);
+            else
+                return false; // Omu, if this happens something has gone wrong.
         return true;
     }
 

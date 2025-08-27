@@ -90,7 +90,7 @@ public abstract class SharedRevolutionarySystem : EntitySystem
     private bool CanGetState(ICommonSession? player)
     {
         //Apparently this can be null in replays so I am just returning true.
-        if (player?.AttachedEntity is not {} uid)
+        if (player?.AttachedEntity is not { } uid)
             return true;
 
         if (HasComp<RevolutionaryComponent>(uid) || HasComp<HeadRevolutionaryComponent>(uid))
@@ -98,7 +98,7 @@ public abstract class SharedRevolutionarySystem : EntitySystem
 
         return HasComp<ShowAntagIconsComponent>(uid);
     }
-    
+
     /// <summary>
     /// Dirties all the Rev components so they are sent to clients.
     ///
@@ -144,7 +144,7 @@ public abstract class SharedRevolutionarySystem : EntitySystem
     {
         if (user != target)
             return false;
-        
+
         if (!TryComp<TagComponent>(implant, out var tagComp))
             return false;
 
@@ -161,5 +161,14 @@ public abstract class SharedRevolutionarySystem : EntitySystem
     public void ToggleConvertAbility(Entity<HeadRevolutionaryComponent> headRev, bool toggle = true)
     {
         headRev.Comp.ConvertAbilityEnabled = toggle;
+    }
+    
+     // Funky Station
+    /// <summary>
+    /// Change headrevs ability to give Rev Vision
+    /// </summary>
+    public void ToggleConvertGivesVision(Entity<HeadRevolutionaryComponent> headRev, bool toggle = true)
+    {
+        headRev.Comp.ConvertGivesRevVision = toggle;
     }
 }
