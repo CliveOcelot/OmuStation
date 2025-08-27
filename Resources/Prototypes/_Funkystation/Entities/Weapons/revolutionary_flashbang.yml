@@ -22,3 +22,8 @@
     guides:
     - Security
     - Antagonists
+  - type: Flashbang # Goobstation
+  - type: Tag # Goobstation
+    tags:
+    - HandGrenade
+    - GrenadeFlashBang
