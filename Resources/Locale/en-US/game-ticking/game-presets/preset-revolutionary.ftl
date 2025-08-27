@@ -28,7 +28,7 @@ head-rev-briefing =
     Use flashes to convert people to your cause.
     Eliminate all heads of staff, and secure the station.
     You have been graciously sponsored with an uplink from
-    the YLF, in-coordination with the Syndicate.
+    Cybersun, in-coordination with the Syndicate.
     Your uplink code is: {$code}
 
 head-rev-break-mindshield = The Mindshield neutralized hypnotic powers, but its functionality has been compromised!
