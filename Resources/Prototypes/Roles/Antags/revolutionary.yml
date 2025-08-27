@@ -34,6 +34,6 @@
   id: HeadRevGear
   storage:
     back:
-    - RevolutionaryManifesto # Einstein Engines - Revolutionary Manifesto
+#    - RevolutionaryManifesto # Einstein Engines - Revolutionary Manifesto # Omu, remove bookrevs
     - EncryptionKeySyndie # Goobstation
     - RevsFastDrawImplanter # Goobstation
