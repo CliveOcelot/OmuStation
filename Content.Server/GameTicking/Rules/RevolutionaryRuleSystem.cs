@@ -143,6 +143,7 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
     /// <returns>true if uplink was successfully added.</returns>
     private bool MakeHeadRevolutionary(EntityUid traitor, RevolutionaryRuleComponent component)
     {
+        Note[]? code = null;
         //Sync Open Revolt state effects to new Head Rev
         if (component.OpenRevoltDeclared && TryComp<HeadRevolutionaryComponent>(traitor, out var headRevComp))
             _revolutionarySystem.ToggleConvertGivesVision((traitor, headRevComp), true);
@@ -155,7 +156,10 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
         if (pda == null || !_uplink.AddUplink(traitor, component.StartingBalance, component.UplinkCurrencyId, component.UplinkStoreId))
             return false;
 
-        var code = EnsureComp<RingerUplinkComponent>(pda.Value).Code;
+        EnsureComp<RingerUplinkComponent>(pda.Value);
+        var ev = new GenerateUplinkCodeEvent();
+        RaiseLocalEvent(pda.Value, ref ev);
+        code = Comp<RingerUplinkComponent>(pda.Value).Code;
 
         _antag.SendBriefing(traitor, Loc.GetString("head-rev-role-greeting"), Color.Red, null);
 

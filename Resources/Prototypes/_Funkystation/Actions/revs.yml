@@ -5,6 +5,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
 - type: entity
+  parent: BaseAction
   id: ActionDeclareOpenRevolt
   name: Declare Open Revolt
   description: Declares Open Revolt, allowing all Revolutionaries to see each other's Revolutionary status, at the cost of outing the name of all Head Revolutionaries.
@@ -12,11 +13,13 @@
   - type: ConfirmableAction
     popup: revolutionaries-open-revolt-confirmation
   - type: InstantAction
-    itemIconStyle: NoItem
+    event: !type:DeclareOpenRevoltEvent
+  - type: Action
     checkCanInteract: false
+    itemIconStyle: BigAction
+    priority: -20
     icon:
       sprite: /Textures/Interface/Misc/job_icons.rsi
       state: HeadRevolutionary
-    event: !type:DeclareOpenRevoltEvent
     startDelay: true
     useDelay: 600
