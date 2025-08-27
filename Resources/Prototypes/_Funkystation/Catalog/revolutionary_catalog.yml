@@ -10,7 +10,7 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
-  saleLimit: 1
+#  saleLimit: 1 # Omu, sale limit doesn't make sense here.
 
 - type: listing
   id: RevolutionaryUplinkSunglasses
@@ -24,7 +24,7 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
-  saleLimit: 1
+#  saleLimit: 1 # Omu, sale limit doesn't make sense here.
 
 - type: listing
   id: RevolutionaryUplinkSyndieKey
@@ -38,7 +38,7 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
-  saleLimit: 1
+#  saleLimit: 1 # Omu, sale limit doesn't make sense here.
 
 - type: listing
   id: RevolutionaryUplinkFastDrawImplanter
@@ -53,4 +53,4 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
-  saleLimit: 1
+#  saleLimit: 1 # Omu, sale limit doesn't make sense here.
