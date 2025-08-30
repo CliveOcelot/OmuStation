@@ -139,3 +139,9 @@ Entries:
       message: Minor changes to the CC-557 centcomm shuttle.
   id: 16
   time: '2025-08-29T17:04:45.0000000+00:00'
+- author: Orion-416
+  changes:
+    - type: Add
+      message: Added the Centcomm Direggtor
+  id: 17
+  time: '2025-08-30T02:41:10.0000000+00:00'
