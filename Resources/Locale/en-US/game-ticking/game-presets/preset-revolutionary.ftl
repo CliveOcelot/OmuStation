@@ -29,7 +29,6 @@ head-rev-briefing =
     Eliminate all heads of staff, and secure the station.
     You have been graciously sponsored with an uplink from
     Cybersun, in-coordination with the Syndicate.
-    Your uplink code is: {$code}
 
 head-rev-break-mindshield = The Mindshield neutralized hypnotic powers, but its functionality has been compromised!
 

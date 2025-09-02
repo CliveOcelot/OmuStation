@@ -35,6 +35,7 @@
   storage:
     back:
 #    - RevolutionaryManifesto # Einstein Engines - Revolutionary Manifesto # Omu, remove bookrevs
-    - EncryptionKeySyndie # Goobstation
-    - RevsFastDrawImplanter # Goobstation
-    - Flash
+    #- EncryptionKeySyndie # Goobstation # Omu, headrev uplink
+    #- RevsFastDrawImplanter # Goobstation # Omu, headrev uplink
+    #- Flash # Omu, headrev uplink
+    - BaseUplinkRadioRevolutionary40RC

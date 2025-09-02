@@ -397,7 +397,7 @@
         text: head-rev-role-greeting
         color: CornflowerBlue
         sound: "/Audio/Ambience/Antag/headrev_start.ogg"
-      #startingGear: HeadRevGear -- Funky Station: HRev uplink
+      startingGear: HeadRevGear
       components:
       - type: Revolutionary
       - type: HeadRevolutionary

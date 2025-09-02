@@ -78,7 +78,7 @@ using Content.Shared.PDA.Ringer;
 using Content.Shared.PDA;
 using Content.Server.Traitor.Uplink;
 using Robust.Shared.Player;
-
+using Content.Server.Antag.Components;
 
 
 namespace Content.Server.GameTicking.Rules;
@@ -143,7 +143,7 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
     /// <returns>true if uplink was successfully added.</returns>
     private bool MakeHeadRevolutionary(EntityUid traitor, RevolutionaryRuleComponent component)
     {
-        Note[]? code = null;
+        //Note[]? code = null;
         //Sync Open Revolt state effects to new Head Rev
         if (component.OpenRevoltDeclared && TryComp<HeadRevolutionaryComponent>(traitor, out var headRevComp))
             _revolutionarySystem.ToggleConvertGivesVision((traitor, headRevComp), true);
@@ -152,22 +152,22 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
         if (!_mind.TryGetMind(traitor, out var mindId, out var mind))
             return false;
 
-        var pda = _uplink.FindUplinkTarget(traitor);
-        if (pda == null || !_uplink.AddUplink(traitor, component.StartingBalance, component.UplinkCurrencyId, component.UplinkStoreId))
-            return false;
+        //var pda = _uplink.FindUplinkTarget(traitor);
+        //if (pda == null || !_uplink.AddUplink(traitor, component.StartingBalance, component.UplinkCurrencyId, component.UplinkStoreId))
+        //    return false;
 
-        EnsureComp<RingerUplinkComponent>(pda.Value);
-        var ev = new GenerateUplinkCodeEvent();
-        RaiseLocalEvent(pda.Value, ref ev);
-        code = Comp<RingerUplinkComponent>(pda.Value).Code;
+        //EnsureComp<RingerUplinkComponent>(pda.Value);
+        //var ev = new GenerateUplinkCodeEvent();
+        //RaiseLocalEvent(pda.Value, ref ev);
+        //code = Comp<RingerUplinkComponent>(pda.Value).Code;
 
         _antag.SendBriefing(traitor, Loc.GetString("head-rev-role-greeting"), Color.Red, null);
 
         if (_role.MindHasRole<RevolutionaryRoleComponent>(mindId, out var revRoleComp))
-            if (code != null) // Omu, if this is null something has gone wrong.
-                AddComp(revRoleComp.Value, new RoleBriefingComponent { Briefing = Loc.GetString("head-rev-briefing", ("code", string.Join("-", code).Replace("sharp", "#"))) }, overwrite: true);
-            else
-                return false; // Omu, if this happens something has gone wrong.
+            //if (code != null) // Omu, if this is null something has gone wrong.
+                AddComp(revRoleComp.Value, new RoleBriefingComponent { Briefing = Loc.GetString("head-rev-briefing") }, overwrite: true);
+            //else
+            //    return false; // Omu, if this happens something has gone wrong.
         return true;
     }
 
@@ -350,11 +350,9 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
             !_mobState.IsAlive(ev.Target) ||
             HasComp<ZombieComponent>(ev.Target) ||
             HasComp<HereticComponent>(ev.Target) ||
-            HasComp<ChangelingComponent>(ev.Target)) // goob edit - no more ling or heretic revs
+            HasComp<ChangelingComponent>(ev.Target) || // goob edit - no more ling or heretic revs
+            HasComp<AntagImmuneComponent>(ev.Target)) // Antag immune MEANS antag immune.
         {
-
-
-
             return;
         }
 
