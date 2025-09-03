@@ -242,7 +242,7 @@ namespace Content.Server.Flash
 
                 _popup.PopupEntity(Loc.GetString("flash-component-user-head-rev",
                         ("victim", Identity.Entity(target, EntityManager))), target);
-            }
+            }  // funkystation end
         }
 
         public override void FlashArea(Entity<FlashComponent?> source, EntityUid? user, float range, float duration, float slowTo = 0.8f, bool displayPopup = false, float probability = 1f, SoundSpecifier? sound = null)
