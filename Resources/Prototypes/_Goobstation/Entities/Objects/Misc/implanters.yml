@@ -36,7 +36,7 @@
           map: [ "implantOnly" ]
     - type: Implanter
       currentMode: Draw
-      drawTime: 15
+      drawTime: 15 # funkystation
       deimplantFailureDamage:
         types:
           Heat: 20
