@@ -270,6 +270,7 @@
   - LoadoutSpeciesVoxNitrogen
   - LoadoutSpeciesPlasma # Goobstation
   - EmergencyWaterVapor # Delta-V
+  - EmergencySilicon
 
 # nitrogen or oxygen tank, depending on what your species needs
 - type: loadoutGroup
@@ -725,6 +726,7 @@
   - LoadoutSpeciesVoxNitrogen
   - LoadoutSpeciesPlasma # Goobstation
   - EmergencyWaterVaporClown # Delta-V
+  - EmergencySilicon
 
 - type: loadoutGroup
   id: MimeHead
@@ -786,6 +788,7 @@
   - LoadoutSpeciesVoxNitrogen
   - LoadoutSpeciesPlasma # Goobstation
   - EmergencyWaterVaporMime # Delta-V
+  - EmergencySilicon
 
 - type: loadoutGroup
   id: MusicianJumpsuit
@@ -1107,6 +1110,7 @@
   - LoadoutSpeciesVoxNitrogen
   - LoadoutSpeciesPlasma # Goobstation
   - EmergencyWaterVaporExtended # Delta-V
+  - EmergencySilicon
 
 # Science
 - type: loadoutGroup
@@ -1412,6 +1416,7 @@
   - LoadoutSpeciesVoxNitrogen
   - LoadoutSpeciesPlasma # Goobstation
   - EmergencyWaterVaporSecurity # Delta-V
+  - EmergencySilicon
 
 - type: loadoutGroup
   id: SecurityStar
@@ -1639,6 +1644,7 @@
   - LoadoutSpeciesVoxNitrogen
   - LoadoutSpeciesPlasma # Goobstation
   - EmergencyWaterVaporMedical # Delta-V
+  - EmergencySilicon
 
 # Wildcards
 - type: loadoutGroup
@@ -1685,6 +1691,7 @@
   - LoadoutSpeciesVoxNitrogen
   - LoadoutSpeciesPlasma # Goobstation
   - EmergencyWaterVaporSyndicate # Delta-V
+  - EmergencySilicon
 
 - type: loadoutGroup
   id: GroupSpeciesBreathTool
