@@ -230,7 +230,7 @@ namespace Content.Server.Flash
                     ("user", Identity.Entity(user.Value, EntityManager))), target, target);
             }
 
-            if (melee || revFlash)
+            if (melee || revFlash)  // funkystation start
             {
                 var ev = new AfterFlashedEvent(target, user, used);
 
