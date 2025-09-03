@@ -276,7 +276,7 @@ namespace Content.Server.Flash
             _audio.PlayPvs(sound, source, AudioParams.Default.WithVolume(1f).WithMaxDistance(3f));
         }
 
-        // funkystation: copy and paste of above, cry about it
+        // funkystation start: copy and paste of above, cry about it
         public void RevolutionaryFlashArea(Entity<FlashComponent?> source, EntityUid? user, float range, float duration, float slowTo = 0.8f, bool displayPopup = false, float probability = 1f, SoundSpecifier? sound = null)
         {
             var transform = Transform(source);
