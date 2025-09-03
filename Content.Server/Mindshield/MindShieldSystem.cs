@@ -78,7 +78,7 @@ public sealed class MindShieldSystem : EntitySystem
             _roleSystem.MindRemoveRole<RevolutionaryRoleComponent>(mindId))
         {
             if (HasComp<ShowRevolutionaryIconsComponent>(implanted))
-                RemComp<ShowRevolutionaryIconsComponent>(implanted);
+                RemComp<ShowRevolutionaryIconsComponent>(implanted);  // funkystation
 
             _adminLogManager.Add(LogType.Mind, LogImpact.Medium, $"{ToPrettyString(implanted)} was deconverted due to being implanted with a Mindshield.");
         }

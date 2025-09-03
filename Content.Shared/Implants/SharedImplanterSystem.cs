@@ -239,7 +239,7 @@ public abstract class SharedImplanterSystem : EntitySystem
                         continue;
                     }
 
-                    DrawImplantIntoImplanter(implanter, target, implant, implantContainer, implanterContainer, implantComp, component);
+                    DrawImplantIntoImplanter(implanter, target, implant, implantContainer, implanterContainer, implantComp, component);  // funkystation
                     permanentFound = implantComp.Permanent;
 
                     //Break so only one implant is drawn
@@ -274,11 +274,11 @@ public abstract class SharedImplanterSystem : EntitySystem
                     }
                     else
                     {
-                        DrawImplantIntoImplanter(implanter, target, implant.Value, implantContainer, implanterContainer, implantComp, component);
+                        DrawImplantIntoImplanter(implanter, target, implant.Value, implantContainer, implanterContainer, implantComp, component);  // funkystation
                         permanentFound = implantComp.Permanent;
                     }
 
-                    if (component.CurrentMode == ImplanterToggleMode.Draw && !component.ImplantOnly && !permanentFound && !component.DeimplantCrushes)
+                    if (component.CurrentMode == ImplanterToggleMode.Draw && !component.ImplantOnly && !permanentFound && !component.DeimplantCrushes)  // funkystation
                         ImplantMode(implanter, component);
                 }
                 else
@@ -305,12 +305,12 @@ public abstract class SharedImplanterSystem : EntitySystem
         _popup.PopupEntity(failedPermanentMessage, target, user);
     }
 
-    private void DrawImplantIntoImplanter(EntityUid implanter, EntityUid target, EntityUid implant, BaseContainer implantContainer, ContainerSlot implanterContainer, SubdermalImplantComponent implantComp, ImplanterComponent implanterComp)
+    private void DrawImplantIntoImplanter(EntityUid implanter, EntityUid target, EntityUid implant, BaseContainer implantContainer, ContainerSlot implanterContainer, SubdermalImplantComponent implantComp, ImplanterComponent implanterComp)  // funkystation
     {
         _container.Remove(implant, implantContainer);
         implantComp.ImplantedEntity = null;
 
-        if (!implanterComp.DeimplantCrushes)
+        if (!implanterComp.DeimplantCrushes)  // funkystation
             _container.Insert(implant, implanterContainer);
 
         var ev = new TransferDnaEvent { Donor = target, Recipient = implanter };

@@ -126,7 +126,7 @@ public sealed partial class ImplanterComponent : Component
     /// Whether or not drawing an implant deletes the implant.
     /// </summary>
     [DataField]
-    public bool DeimplantCrushes = false;
+    public bool DeimplantCrushes = false;  // funkystation
 
     public bool UiUpdateNeeded;
 }

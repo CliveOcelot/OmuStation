@@ -4,7 +4,7 @@ using Content.Shared.Revolutionary.Components;
 
 
 namespace Content.Server.Revolutionary;
-
+ // funkystation start
 public sealed class RevolutionarySystem : SharedRevolutionarySystem
 {
     [Dependency] private readonly ActionsSystem _actions = default!;
@@ -27,3 +27,4 @@ public sealed class RevolutionarySystem : SharedRevolutionarySystem
         }
     }
 }
+ // funkystation end

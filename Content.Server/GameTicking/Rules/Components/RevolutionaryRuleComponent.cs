@@ -49,7 +49,7 @@ public sealed partial class RevolutionaryRuleComponent : Component
     [DataField] public bool HasRevAnnouncementPlayed = false;
     // gobo edit end
 
-    // funky station
+    // funky station start
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public TimeSpan? RevVictoryEndTime;
 
@@ -83,4 +83,5 @@ public sealed partial class RevolutionaryRuleComponent : Component
 
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public bool OpenRevoltAnnouncementPending = false;
+     // funkystation end
 }

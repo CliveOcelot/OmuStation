@@ -121,7 +121,7 @@ public abstract class SharedRevolutionarySystem : EntitySystem
         }
     }
 
-    private void OnHeadRevImplantAttempt(Entity<HeadRevolutionaryComponent> headRev, ref AddImplantAttemptEvent args)
+    private void OnHeadRevImplantAttempt(Entity<HeadRevolutionaryComponent> headRev, ref AddImplantAttemptEvent args)  // funkystation start
     {
         if (TryCancelSelfMindshield(args.User, args.Target, args.Implant))
             args.Cancel();
