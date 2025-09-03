@@ -303,7 +303,7 @@ namespace Content.Server.Flash
             }
 
             _audio.PlayPvs(sound, source, AudioParams.Default.WithVolume(1f).WithMaxDistance(3f));
-        }
+        }  // funkystation end
 
         private void OnInventoryFlashAttempt(EntityUid uid, InventoryComponent component, FlashAttemptEvent args)
         {
