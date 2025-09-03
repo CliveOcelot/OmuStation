@@ -188,7 +188,7 @@ namespace Content.Server.Flash
             bool displayPopup = true,
             bool melee = false,
             TimeSpan? stunDuration = null,
-            bool revFlash = false)
+            bool revFlash = false) // funkystation
         {
             // Goob edit start
             if (used == null
