@@ -217,3 +217,9 @@ Entries:
       message: Deleted Barratry from the map pool.
   id: 25
   time: '2025-09-02T19:22:14.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Add
+      message: Harpy can now Chitter, Squeak, and Flap
+  id: 26
+  time: '2025-09-02T21:38:08.0000000+00:00'
