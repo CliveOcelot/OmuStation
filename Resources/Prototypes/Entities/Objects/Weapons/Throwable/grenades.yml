@@ -211,7 +211,7 @@
     guides:
     - Security
     - Antagonists
-  - type: Construction
+  - type: Construction  # funkystation
     graph: RevolutionaryFlashbangGraph
     node: start
   - type: Flashbang # Goobstation
