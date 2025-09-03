@@ -152,7 +152,7 @@ public abstract class SharedRevolutionarySystem : EntitySystem
             return false;
 
         return true;
-    }
+    }  // funkystation end
 
     // GoobStation
     /// <summary>
