@@ -370,5 +370,5 @@ namespace Content.Server.Flash
             User = user;
             Used = used;
         }
-    }
+    }  // funkystation end
 }
