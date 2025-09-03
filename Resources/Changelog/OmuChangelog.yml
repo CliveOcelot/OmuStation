@@ -223,3 +223,9 @@ Entries:
       message: Harpy can now Chitter, Squeak, and Flap
   id: 26
   time: '2025-09-02T21:38:08.0000000+00:00'
+- author: Cygnye
+  changes:
+    - type: Add
+      message: Director loadout!
+  id: 27
+  time: '2025-09-03T06:00:31.0000000+00:00'
