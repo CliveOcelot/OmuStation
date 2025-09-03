@@ -353,6 +353,7 @@ namespace Content.Server.Flash
         }
     }
     // funkystation start
+    // funkystation start
     /// <summary>
     ///     Called after a flash is used via melee on another person to check for rev conversion.
     ///     Raised on the target hit by the flash, the user of the flash and the flash used.
