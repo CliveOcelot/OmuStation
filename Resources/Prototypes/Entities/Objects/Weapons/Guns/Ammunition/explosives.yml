@@ -280,6 +280,10 @@
   - type: SpentAmmoVisuals
     state: frag
     suffix: false
+  - type: Tag # Omu, allow the hydra to fire this
+    tags:
+     - Grenade
+     - CleaningGrenade
 
 - type: entity
   id: GrenadeEMP
