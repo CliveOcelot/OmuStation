@@ -107,6 +107,7 @@ using Robust.Shared.Physics.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Utility;
 using FTLMapComponent = Content.Shared.Shuttles.Components.FTLMapComponent;
+using Content.Shared._Omu.Shuttles.Components;
 
 namespace Content.Server.Shuttles.Systems;
 
