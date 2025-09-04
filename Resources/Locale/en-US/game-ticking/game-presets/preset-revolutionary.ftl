@@ -19,9 +19,9 @@ roles-antag-rev-head-objective = Your objective is to take over the station by c
 
 head-rev-role-greeting =
     You are a Head Revolutionary.
-    You are tasked with removing all of Command from station via death, exilement or imprisonment.
-    The Syndicate has sponsored you with a manifesto that persuades the crew to your side.
-    Beware, this won't work on Security or Command - their loyalty is unwavering.
+    You are tasked with removing all of Command from station via conversion, death, exilement or imprisonment.
+    The Syndicate has sponsored you with an uplink, and the ability to convert with flashes.
+    Beware, this won't work on Mindshielded crew - their loyalty is unwavering.
     Viva la revolución!
 
 head-rev-briefing =
