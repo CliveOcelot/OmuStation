@@ -282,7 +282,7 @@ public sealed partial class ShuttleSystem
             return true;
 
         component.Enabled = enabled;
-        component.RequireCoordinateDisk = requireDisk;
+        component.RequireCoordinateDisk = false; // Omu, just set this to false, requireDisk;
         component.BeaconsOnly = beaconsOnly;
         component.Whitelist = CCWhitelist; // Omu, allow CC shuttles to FTL to CC
 
