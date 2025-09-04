@@ -113,9 +113,9 @@ namespace Content.Server.Shuttles.Systems;
 
 public sealed partial class ShuttleSystem
 {
-    private override EntityWhitelist CCWhitelist => new EntityWhitelist() // Omu, allow CC shuttles to FTL to CC
+    public EntityWhitelist CCWhitelist => new EntityWhitelist() // Omu, allow CC shuttles to FTL to CC
     {
-        Components = ["CentCommShuttle"]
+        Components = ["CentCommShuttle", "EmergencyShuttle", "EscapePod"]
     };
     /*
      * This is a way to move a shuttle from one location to another, via an intermediate map for fanciness.
