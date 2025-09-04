@@ -265,7 +265,7 @@ public sealed partial class ShuttleSystem
     /// </summary>
     public bool TryAddFTLDestination(MapId mapId, bool enabled, [NotNullWhen(true)] out FTLDestinationComponent? component)
     {
-        return TryAddFTLDestination(mapId, enabled, true, false, out component);
+        return TryAddFTLDestination(mapId, enabled, false, false, out component); // Omu, set requireDisk to false
     }
 
     public bool TryAddFTLDestination(MapId mapId, bool enabled, bool requireDisk, bool beaconsOnly, [NotNullWhen(true)] out FTLDestinationComponent? component)
