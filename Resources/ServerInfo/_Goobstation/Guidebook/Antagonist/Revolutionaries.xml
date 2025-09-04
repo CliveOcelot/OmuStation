@@ -36,12 +36,12 @@ SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
   [bold]The revolution will also fail[/bold] if all of the [bold][color=#5e9cff]Head Revolutionaries[/color][/bold] are off the station. Your objective is to capture the station, so do not wander far.
 
   ## Your Uplink
-  [bold][color=#5e9cff]Head Revolutionaries[/color][/bold] are chosen at the start of the shift. They are given a PDA uplink similar to a Syndicate uplink.
+  [bold][color=#5e9cff]Head Revolutionaries[/color][/bold] are chosen at the start of the shift. They are given a uplink similar to a Syndicate uplink.
 
-  Telecrystals cannot be used in this PDA, instead a new currency, [color=#ff0000]RevCoin[/color], must be used. Be sure to lock your uplink after you're done using it.
+  Telecrystals are used for this uplink.
 
   <Box>
-    <GuideEntityEmbed Entity="RevCoin"/>
+    <GuideEntityEmbed Entity="Telecrystal"/>
   </Box>
 
   ## Mindshields & Eye Protection

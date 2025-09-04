@@ -76,7 +76,7 @@ public sealed partial class RevolutionaryRuleComponent : Component
     public EntProtoId UplinkStoreId = "StorePresetRevolutionaryUplink";
 
     [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public EntProtoId UplinkCurrencyId = "RevCoin";
+    public EntProtoId UplinkCurrencyId = "Telecrystal"; // Omu, replace revcoin with TC
 
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public bool OpenRevoltDeclared = false;

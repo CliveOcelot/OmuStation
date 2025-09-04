@@ -6,8 +6,8 @@
     categories:
     - RevolutionaryUplinkDefault
     currencyWhitelist:
-    - RevCoin
+    - Telecrystal # Omu, replace revcoin with TC
     balance:
-      RevCoin: 0
+      Telecrystal: 0 # Omu, replace revcoin with TC
     sales:
       enabled: false

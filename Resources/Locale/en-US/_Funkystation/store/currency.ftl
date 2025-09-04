@@ -1,1 +1,2 @@
-store-currency-display-revcoin = RevCoin
+store-currency-display-revcoin = Telecrystal
+# Omu, replace revcoin with TC

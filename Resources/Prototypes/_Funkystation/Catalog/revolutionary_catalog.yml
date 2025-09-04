@@ -4,7 +4,7 @@
   description: Multipurpose tool. Scare security, convert ordinary co-workers, and cause chaos.
   productEntity: Flash
   cost:
-    RevCoin: 10 # Temporary price
+    Telecrystal: 10 # Temporary price # Omu, replace revcoin with TC
   categories:
   - RevolutionaryUplinkDefault
   conditions:
@@ -18,7 +18,7 @@
   description: Make yourself look suspicious, in style.
   productEntity: ClothingEyesGlassesSunglasses
   cost:
-    RevCoin: 10 # Temporary price
+    Telecrystal: 10 # Temporary price # Omu, replace revcoin with TC
   categories:
   - RevolutionaryUplinkDefault
   conditions:
@@ -32,7 +32,7 @@
   description: An encryption key used for communicating with possible agents of the revolution.
   productEntity: EncryptionKeySyndie
   cost:
-    RevCoin: 10 # Temporary price
+    Telecrystal: 10 # Temporary price # Omu, replace revcoin with TC
   categories:
   - RevolutionaryUplinkDefault
   conditions:
@@ -47,7 +47,7 @@
   description: A syringe with tools for quick implant removal. It has small gold stars on its body.
   productEntity: RevsFastDrawImplanter
   cost:
-    RevCoin: 10 # Temporary price
+    Telecrystal: 10 # Temporary price # Omu, replace revcoin with TC
   categories:
   - RevolutionaryUplinkDefault
   conditions:

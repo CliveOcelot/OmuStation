@@ -20,7 +20,7 @@
     key: enum.StoreUiKey.Key
   - type: Store
     balance:
-      RevCoin: 0
+      Telecrystal: 0 # Omu, replace revcoin with TC
 
 - type: entity
   parent: BaseUplinkRadioRevolutionary
@@ -29,4 +29,4 @@
   components:
   - type: Store
     balance:
-      RevCoin: 40
+      Telecrystal: 40 # Omu, replace revcoin with TC
