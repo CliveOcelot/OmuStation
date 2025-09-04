@@ -277,14 +277,13 @@ public sealed partial class ShuttleSystem
             return false;
 
         component = EnsureComp<FTLDestinationComponent>(mapUid);
-
+        component.Whitelist = CCWhitelist; // Omu, allow CC shuttles to FTL to CC
         if (component.Enabled == enabled && component.RequireCoordinateDisk == requireDisk && component.BeaconsOnly == beaconsOnly)
             return true;
-
+        
         component.Enabled = enabled;
         component.RequireCoordinateDisk = false; // Omu, just set this to false, requireDisk;
         component.BeaconsOnly = beaconsOnly;
-        component.Whitelist = CCWhitelist; // Omu, allow CC shuttles to FTL to CC
 
         _console.RefreshShuttleConsoles();
         Dirty(mapUid, component);
