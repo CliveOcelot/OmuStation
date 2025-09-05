@@ -265,7 +265,7 @@
   - type: TypingIndicatorClothing
     proto: alien
 
-## Changed by Funkystation.
+## Funkystation start
 
 - type: entity
   parent: ClothingNeckBase
@@ -365,3 +365,5 @@
   components:
   - type: Sprite
     sprite: Clothing/Neck/Cloaks/pan.rsi
+
+## Funkystation end
