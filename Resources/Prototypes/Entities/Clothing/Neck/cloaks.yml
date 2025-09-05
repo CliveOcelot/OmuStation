@@ -306,8 +306,8 @@
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckCloakAroace
-  name: aeropilot's cloak # thank you happyman442 this was the best name idea ever
-  description: Cloak awarded to Nanotrasen's finest pilots on planets with inhabitable atmospheres.
+  name: aroace pride cloak
+  description: A cloak representing aroace pride.
   components:
   - type: Sprite
     sprite: Clothing/Neck/Cloaks/aroace.rsi
