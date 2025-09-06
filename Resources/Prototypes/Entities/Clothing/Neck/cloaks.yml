@@ -188,6 +188,15 @@
 
 - type: entity
   parent: ClothingNeckBase
+  id: ClothingNeckCloakTrans
+  name: transgender pride cloak # Funkystation, renamed to appropriate name
+  description: A cloak representing transgender pride.
+  components:
+  - type: Sprite
+    sprite: Clothing/Neck/Cloaks/trans.rsi
+
+- type: entity
+  parent: ClothingNeckBase
   id: ClothingNeckCloakGoliathCloak
   name: goliath cloak
   description: A cloak made from the hide of resilient fauna from a distant planet. #Goobstation
@@ -265,21 +274,10 @@
   - type: TypingIndicatorClothing
     proto: alien
 
-## Funkystation start
-
-- type: entity
-  parent: ClothingNeckBase
-  id: ClothingNeckCloakTrans
-  name: transgender pride cloak
-  description: A cloak representing transgender pride.
-  components:
-  - type: Sprite
-    sprite: Clothing/Neck/Cloaks/trans.rsi
-
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckCloakAce
-  name: asexual pride cloak
+  name: asexual pride cloak # Funkystation, renamed to appropriate name
   description: A cloak representing asexual pride.
   components:
   - type: Sprite
@@ -288,7 +286,7 @@
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckCloakAro
-  name: aromantic pride cloak
+  name: aromantic pride cloak # Funkystation, renamed to appropriate name
   description: A cloak representing aromantic pride.
   components:
   - type: Sprite
@@ -297,7 +295,7 @@
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckCloakAroace
-  name: aroace pride cloak
+  name: aroace pride cloak # Funkystation, renamed to appropriate name
   description: A cloak representing aroace pride.
   components:
   - type: Sprite
@@ -306,7 +304,7 @@
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckCloakBi
-  name: bisexual pride cloak
+  name: bisexual pride cloak # Funkystation, renamed to appropriate name
   description: A cloak representing bisexual pride.
   components:
   - type: Sprite
@@ -315,7 +313,7 @@
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckCloakIntersex
-  name: intersex pride cloak
+  name: intersex pride cloak # Funkystation, renamed to appropriate name
   description: A cloak representing intersex pride.
   components:
   - type: Sprite
@@ -324,7 +322,7 @@
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckCloakLesbian
-  name: lesbian pride cloak
+  name: lesbian pride cloak # Funkystation, renamed to appropriate name
   description: A cloak representing lesbian pride.
   components:
   - type: Sprite
@@ -333,7 +331,7 @@
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckCloakGay
-  name: gay pride cloak
+  name: gay pride cloak # Funkystation, renamed to appropriate name
   description: A cloak representing gay pride.
   components:
   - type: Sprite
@@ -342,7 +340,7 @@
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckCloakEnby
-  name: non-binary pride cloak
+  name: non-binary pride cloak # Funkystation, renamed to appropriate name
   description: A cloak representing non-binary pride.
   components:
   - type: Sprite
@@ -351,7 +349,7 @@
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckCloakPan
-  name: pansexual pride cloak
+  name: pansexual pride cloak # Funkystation, renamed to appropriate name
   description: A cloak representing pansexual pride.
   components:
   - type: Sprite
