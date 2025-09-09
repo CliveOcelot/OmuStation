@@ -5,6 +5,7 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Ark <189933909+ark1368@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 AstroDogeDX <48888500+AstroDogeDX@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 # SPDX-FileCopyrightText: 2025 CerberusWolfie <wb.johnb.willis@gmail.com>
@@ -56,3 +57,10 @@
     Piercing: 0.8
     Holy: 1
   ignoreArmorPierceFlags: All # Goobstation
+
+- type: damageModifierSet
+  id: Feroxi
+  coefficients:
+    Cold: 0.9
+    Blunt: 0.9
+    Slash: 1.1
