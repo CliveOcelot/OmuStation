@@ -292,20 +292,21 @@ public abstract class SharedStrippableSystem : EntitySystem
                                                         ("item", user.Comp.ActiveHandEntity!.Value)),
                                                         target, target, GetThievingNoiseLevelOrLarge(user)); // Omustation - Remake EE Traits System - Thieving Trait - popup size is now based on ThievingComponent
 
-        var prefix = stealth ? "stealthily " : "";
-        _adminLogger.Add(LogType.Stripping, LogImpact.Low, $"{ToPrettyString(user):actor} is trying to {prefix}place the item {ToPrettyString(held):item} in {ToPrettyString(target):target}'s {slot} slot");
+            var prefix = stealth ? "stealthily " : "";
+            _adminLogger.Add(LogType.Stripping, LogImpact.Low, $"{ToPrettyString(user):actor} is trying to {prefix}place the item {ToPrettyString(held):item} in {ToPrettyString(target):target}'s {slot} slot");
 
-        var doAfterArgs = new DoAfterArgs(EntityManager, user, time, new StrippableDoAfterEvent(true, true, slot), user, target, held)
-        {
-            Hidden = stealth,
-            AttemptFrequency = AttemptFrequency.EveryTick,
-            BreakOnDamage = true,
-            BreakOnMove = true,
-            NeedHand = true,
-            DuplicateCondition = DuplicateConditions.SameTool
-        };
+            var doAfterArgs = new DoAfterArgs(EntityManager, user, time, new StrippableDoAfterEvent(true, true, slot), user, target, held)
+            {
+                Hidden = stealth,
+                AttemptFrequency = AttemptFrequency.EveryTick,
+                BreakOnDamage = true,
+                BreakOnMove = true,
+                NeedHand = true,
+                DuplicateCondition = DuplicateConditions.SameTool
+            };
 
-        _doAfterSystem.TryStartDoAfter(doAfterArgs);
+            _doAfterSystem.TryStartDoAfter(doAfterArgs);
+        }
     }
 
     /// <summary>
@@ -387,25 +388,26 @@ public abstract class SharedStrippableSystem : EntitySystem
                                                             ("user", Identity.Entity(user, EntityManager)),
                                                             ("item", item)),
                                                             target, target, GetThievingNoiseLevelOrLarge(user)); // Omustation - Remake EE Traits System - Thieving Trait - popup size is now based on ThievingComponent
+            }
+
+            var prefix = stealth ? "stealthily " : "";
+            _adminLogger.Add(LogType.Stripping, LogImpact.Low, $"{ToPrettyString(user):actor} is trying to {prefix}strip the item {ToPrettyString(item):item} from {ToPrettyString(target):target}'s {slot} slot");
+
+            _interactionSystem.DoContactInteraction(user, item);
+
+            var doAfterArgs = new DoAfterArgs(EntityManager, user, time, new StrippableDoAfterEvent(false, true, slot), user, target, item)
+            {
+                Hidden = stealth,
+                AttemptFrequency = AttemptFrequency.EveryTick,
+                BreakOnDamage = true,
+                BreakOnMove = true,
+                NeedHand = true,
+                BreakOnHandChange = false, // Allow simultaneously removing multiple items.
+                DuplicateCondition = DuplicateConditions.SameTool
+            };
+
+            _doAfterSystem.TryStartDoAfter(doAfterArgs);
         }
-
-        var prefix = stealth ? "stealthily " : "";
-        _adminLogger.Add(LogType.Stripping, LogImpact.Low, $"{ToPrettyString(user):actor} is trying to {prefix}strip the item {ToPrettyString(item):item} from {ToPrettyString(target):target}'s {slot} slot");
-
-        _interactionSystem.DoContactInteraction(user, item);
-
-        var doAfterArgs = new DoAfterArgs(EntityManager, user, time, new StrippableDoAfterEvent(false, true, slot), user, target, item)
-        {
-            Hidden = stealth,
-            AttemptFrequency = AttemptFrequency.EveryTick,
-            BreakOnDamage = true,
-            BreakOnMove = true,
-            NeedHand = true,
-            BreakOnHandChange = false, // Allow simultaneously removing multiple items.
-            DuplicateCondition = DuplicateConditions.SameTool
-        };
-
-        _doAfterSystem.TryStartDoAfter(doAfterArgs);
     }
 
     /// <summary>
@@ -491,20 +493,21 @@ public abstract class SharedStrippableSystem : EntitySystem
                                                         ("item", user.Comp.ActiveHandEntity!.Value)),
                                                         target, target, GetThievingNoiseLevelOrLarge(user)); // Omustation - Remake EE Traits System - Thieving Trait - popup size is now based on ThievingComponent
 
-        var prefix = stealth ? "stealthily " : "";
-        _adminLogger.Add(LogType.Stripping, LogImpact.Low, $"{ToPrettyString(user):actor} is trying to {prefix}place the item {ToPrettyString(held):item} in {ToPrettyString(target):target}'s hands");
+            var prefix = stealth ? "stealthily " : "";
+            _adminLogger.Add(LogType.Stripping, LogImpact.Low, $"{ToPrettyString(user):actor} is trying to {prefix}place the item {ToPrettyString(held):item} in {ToPrettyString(target):target}'s hands");
 
-        var doAfterArgs = new DoAfterArgs(EntityManager, user, time, new StrippableDoAfterEvent(true, false, handName), user, target, held)
-        {
-            Hidden = stealth,
-            AttemptFrequency = AttemptFrequency.EveryTick,
-            BreakOnDamage = true,
-            BreakOnMove = true,
-            NeedHand = true,
-            DuplicateCondition = DuplicateConditions.SameTool
-        };
+            var doAfterArgs = new DoAfterArgs(EntityManager, user, time, new StrippableDoAfterEvent(true, false, handName), user, target, held)
+            {
+                Hidden = stealth,
+                AttemptFrequency = AttemptFrequency.EveryTick,
+                BreakOnDamage = true,
+                BreakOnMove = true,
+                NeedHand = true,
+                DuplicateCondition = DuplicateConditions.SameTool
+            };
 
-        _doAfterSystem.TryStartDoAfter(doAfterArgs);
+            _doAfterSystem.TryStartDoAfter(doAfterArgs);
+        }
     }
 
     /// <summary>
