@@ -289,7 +289,7 @@ public abstract class SharedStrippableSystem : EntitySystem
         {
             _popupSystem.PopupEntity(Loc.GetString("strippable-component-alert-owner-insert",
                                                         ("user", Identity.Entity(user, EntityManager)),
-                                                        ("item", user.Comp.ActiveHandEntity!.Value)),
+                                                        ("item", _handsSystem.GetActiveItem((user, user.Comp))!.Value)),
                                                         target, target, GetThievingNoiseLevelOrLarge(user)); // Omustation - Remake EE Traits System - Thieving Trait - popup size is now based on ThievingComponent
 
             var prefix = stealth ? "stealthily " : "";
@@ -490,7 +490,7 @@ public abstract class SharedStrippableSystem : EntitySystem
         {
             _popupSystem.PopupEntity(Loc.GetString("strippable-component-alert-owner-insert-hand",
                                                         ("user", Identity.Entity(user, EntityManager)),
-                                                        ("item", user.Comp.ActiveHandEntity!.Value)),
+                                                        ("item", _handsSystem.GetActiveItem(user)!.Value)),
                                                         target, target, GetThievingNoiseLevelOrLarge(user)); // Omustation - Remake EE Traits System - Thieving Trait - popup size is now based on ThievingComponent
 
             var prefix = stealth ? "stealthily " : "";
