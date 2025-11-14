@@ -103,6 +103,30 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+// SPDX-FileCopyrightText: 2023 Bixkitts
+// SPDX-FileCopyrightText: 2023 Checkraze
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 LankLTE
+// SPDX-FileCopyrightText: 2023 Leon Friedrich
+// SPDX-FileCopyrightText: 2023 Nemanja
+// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2023 ShadowCommander
+// SPDX-FileCopyrightText: 2023 chromiumboy
+// SPDX-FileCopyrightText: 2023 deltanedas
+// SPDX-FileCopyrightText: 2024 Jajsha
+// SPDX-FileCopyrightText: 2024 Jake Huxell
+// SPDX-FileCopyrightText: 2024 LordCarve
+// SPDX-FileCopyrightText: 2024 Nim
+// SPDX-FileCopyrightText: 2024 ScarKy0
+// SPDX-FileCopyrightText: 2024 Simon
+// SPDX-FileCopyrightText: 2024 The Canned One
+// SPDX-FileCopyrightText: 2024 Zachary Higgs
+// SPDX-FileCopyrightText: 2024 metalgearsloth
+// SPDX-FileCopyrightText: 2025 Errant
+// SPDX-FileCopyrightText: 2025 NazrinNya
+//
+// SPDX-License-Identifier: MPL-2.0
+
 using System.Linq;
 using Content.Goobstation.Common.Silicons.Components;
 using Content.Goobstation.Maths.FixedPoint; // Goob edit
@@ -132,6 +156,7 @@ using Content.Shared.Wires;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Containers;
+using Robust.Shared.Map;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random; // Goob edit
@@ -154,6 +179,7 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
     [Dependency] private readonly IonStormSystem _ionStorm = default!; // Goob edit
     [Dependency] private readonly ResearchSystem _research = default!; // Goob edit
     [Dependency] private readonly RadioSystem _radio = default!; // Goob edit
+    [Dependency] private readonly IMapManager _map = default!; // Mono - Law update is grid-only now.
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -431,6 +457,10 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
         if (!TryComp(args.Entity, out SiliconLawProviderComponent? provider))
             return;
 
+        // Mono edit start - Law update is grid-only now.
+        if (!_map.TryFindGridAt(Transform(args.Entity).MapPosition, out var grid, out var component))
+            return;
+
         // Goob edit start
         if (HasComp<ActiveExperimentalLawProviderComponent>(ent))
         {
@@ -450,6 +480,9 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
 
         while (query.MoveNext(out var update))
         {
+            if (Transform(update).GridUid != grid)
+                continue;
+
             SetLaws(lawset, update, provider.LawUploadSound);
 
             // Corvax-Next-AiRemoteControl-Start
