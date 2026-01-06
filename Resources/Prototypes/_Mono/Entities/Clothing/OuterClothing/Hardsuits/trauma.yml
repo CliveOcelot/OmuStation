@@ -39,7 +39,7 @@
       head: ClothingHeadHelmetHardsuitTrauma
   - type: StaticPrice
     price: 1400
-    vendPrice: 10000
+#    vendPrice: 10000 # Omu
 
 - type: entity
   parent: ClothingOuterHardsuitBase
@@ -78,4 +78,4 @@
       head: ClothingHeadHelmetHardsuitTraumaLeader
   - type: StaticPrice
     price: 4200
-    vendPrice: 25000
+#    vendPrice: 25000 # Omu
