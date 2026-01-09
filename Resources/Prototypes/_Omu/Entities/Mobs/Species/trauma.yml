@@ -1,0 +1,8 @@
+- type: entity
+  parent: BaseMobHuman
+  id: BaseMobTraumaUnit
+  name: Urist McTrauma
+  abstract: true
+  components:
+    - type: Body
+      prototype: Trauma

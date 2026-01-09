@@ -1,0 +1,55 @@
+- type: body
+  id: Trauma
+  name: "trauma"
+  root: chest
+  slots:
+    head:
+      part: HeadHuman
+      connections:
+      - chest
+      organs:
+        brain: OrganHumanBrain
+        eyes: OrganTraumaEyes
+    chest:
+      part: ChestHuman
+      connections:
+      - groin
+      - right arm
+      - left arm
+      - head # Shitmed
+      organs:
+        heart: OrganHeartSandevistan
+        lungs: UpgradedCyberneticLungs
+    groin:
+      part: GroinHuman
+      connections:
+      - right leg
+      - left leg
+      organs:
+        stomach: OrganHumanStomach
+        liver: BasicCyberneticLiver
+        kidneys: OrganHumanKidneys
+    right arm:
+      part: TraumaRightArm
+      connections:
+      - right hand
+    left arm:
+      part: TraumaLeftArm
+      connections:
+      - left hand
+    right hand:
+      part: DexRightHand
+    left hand:
+      part: DexLeftHand
+    right leg:
+      part: SpeedRightLeg
+      connections:
+      - right foot
+    left leg:
+      part: SpeedLeftLeg
+      connections:
+      - left foot
+    right foot:
+      part: RightFootHuman
+    left foot:
+      part: LeftFootHuman

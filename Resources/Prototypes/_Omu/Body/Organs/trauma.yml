@@ -1,0 +1,29 @@
+- type: entity
+  parent: BasicCyberneticEyes
+  id: OrganTraumaEyes
+  name: trauma unit eyes
+  components:
+  - type: Organ
+    onAdd:
+    - type: NightVision
+      isEquipment: false
+      color: "#ae65bf"
+      activateSound: null
+      deactivateSound: null
+    - type: ShowJobIcons
+    - type: ShowMindShieldIcons
+    - type: ShowCriminalRecordIcons
+    - type: FlashImmunity
+    - type: EyeProtection
+    - type: ShowHealthBars
+      damageContainers:
+      - Biological
+      - Inorganic
+      - Silicon
+      - SiliconRadiation
+    - type: ShowHealthIcons
+      damageContainers:
+      - Biological
+      - Inorganic
+      - Silicon
+      - SiliconRadiation

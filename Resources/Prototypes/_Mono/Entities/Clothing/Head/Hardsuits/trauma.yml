@@ -4,10 +4,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  parent: [ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase, ShowMedicalIcons]
+  parent: [ClothingHeadHardsuitBase, ClothingHeadHardsuitWithLightBase, ShowMedicalIcons]
   id: ClothingHeadHelmetHardsuitTrauma
   name: armed trauma unit T-23 tacsuit helmet
-  description: The standard combat suit of the Armed Trauma Unit, outfitted with a limited-range radar hud as well as a medical hud.
+  description: The standard combat suit of the Armed Trauma Unit, outfitted with a medical hud. # Omu, remove "a limited-range radar hud as well as"
   components:
   - type: Sprite
     sprite: _Mono/Clothing/Head/Hardsuits/trauma.rsi
@@ -18,15 +18,15 @@
   - type: PressureProtection
     highPressureMultiplier: 0.08
     lowPressureMultiplier: 1000
-  - type: RadarConsole
-    followEntity: true
-  - type: ActivatableUI
-    key: enum.RadarConsoleUiKey.Key
-    singleUser: true
-  - type: UserInterface
-    interfaces:
-      enum.RadarConsoleUiKey.Key:
-        type: RadarConsoleBoundUserInterface
+#  - type: RadarConsole # Omu, this doesn't work here
+#    followEntity: true
+#  - type: ActivatableUI
+#    key: enum.RadarConsoleUiKey.Key
+#    singleUser: true
+#  - type: UserInterface
+#    interfaces:
+#      enum.RadarConsoleUiKey.Key:
+#        type: RadarConsoleBoundUserInterface
   - type: Armor
     modifiers:
       coefficients:
@@ -48,7 +48,7 @@
   parent: [ClothingHeadHardsuitBase, ShowMedicalIcons]
   id: ClothingHeadHelmetHardsuitTraumaLeader
   name: armed trauma unit T-53 tacsuit helmet
-  description: The commander's tacsuit in the Armed Trauma Unit, outfitted with a medical and long-range radar hud as well as thermals and night vision.
+  description: The commander's tacsuit in the Armed Trauma Unit, outfitted with a medical hud as well as thermals and night vision. # Omu - remove "and long-range radar"
   components:
   - type: Sprite
     sprite: _Mono/Clothing/Head/Hardsuits/trauma_leader.rsi
@@ -67,15 +67,15 @@
     pulseTime: 3
     isEquipment: true
     toggleAction: PulseThermalVision
-  - type: RadarConsole
-    followEntity: true
-  - type: ActivatableUI
-    key: enum.RadarConsoleUiKey.Key
-    singleUser: true
-  - type: UserInterface
-    interfaces:
-      enum.RadarConsoleUiKey.Key:
-        type: RadarConsoleBoundUserInterface
+#  - type: RadarConsole # Omu, this doesn't work here
+#    followEntity: true
+#  - type: ActivatableUI
+#    key: enum.RadarConsoleUiKey.Key
+#    singleUser: true
+#  - type: UserInterface
+#    interfaces:
+#      enum.RadarConsoleUiKey.Key:
+#        type: RadarConsoleBoundUserInterface
   - type: Armor
     modifiers:
       coefficients:

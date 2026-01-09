@@ -1,0 +1,55 @@
+#- type: job
+#  id: TraumaUnit
+#  name: job-name-nanotrasen-spectre
+#  description: job-description-nanotrasen-spectre
+#  playTimeTracker: JobNanoTrasenSpectre
+#  setPreference: false
+#  startingGear: NanoTrasenSpectreGear
+#  icon: "JobIconNanotrasen"
+#  supervisors: job-supervisors-centcom
+#  canBeAntag: false
+#  accessGroups:
+#    - AllAccess
+#  access:
+#    - CentralCommand
+#    - NanotrasenRepresentative
+#    - BlueshieldOfficer
+#  special:
+#    - !type:AddImplantSpecial
+#      implants:
+#        [
+#          MindShieldImplant,
+#          FreedomImplant,
+#          BluespaceLifelineImplant,
+#          RadioImplantCentcomm,
+#          NutrimentPumpImplant,
+#          StypticStimulatorImplant,
+#          DeathRattleImplantCentcomm
+#        ]
+#    - !type:AddComponentSpecial
+#      components:
+#        - type: DeathSquadMember
+
+
+#- type: startingGear
+#  id: NanoTrasenSpectreGear
+#  equipment:
+#    jumpsuit: ClothingUniformJumpsuitDeathSquad
+#    back: ClothingModsuitSpectreFilled
+#    mask: ClothingMaskGasDeathSquad
+#    eyes: ClothingEyesGlassesDeathsquad
+#    neck: ExecutiveIDCard
+#    ears: ClothingHeadsetDeathsquad
+#    gloves: ClothingHandsGlovesDeathsquad
+#    outerClothing: ClothingOuterVestWebDurathread
+#    shoes: ClothingShoesBootsMagDeathsquad
+#    id: DeathsquadPDA
+#    pocket1: PhoronSabre
+#    pocket2: WeaponRevolverMateba
+#    belt: ClothingBeltDeathsquadWebbingFilled
+#  storage:
+#    back:
+#      - SpeedLoaderMatebaAP
+#      - SpeedLoaderMatebaAP
+#  inhand:
+#    - WeaponPulseRifle

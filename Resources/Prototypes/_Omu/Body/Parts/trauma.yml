@@ -1,0 +1,31 @@
+- type: entity
+  parent: LeftArmCybernetic
+  id: TraumaLeftArm
+  name: trauma unit left arm
+  description: A cybernetic left arm with the ability to pry doors open and integrated mantis blades.
+  components:
+  - type: BodyPart
+    onAdd:
+    - type: Prying
+      speedModifier: 1.5
+      pryPowered: true
+    - type: UseDelay # For insta prying
+      delay: 1
+  - type: MantisBladeArm
+    actionProto: ActionToggleLeftMantisBlade
+
+- type: entity
+  parent: RightArmCybernetic
+  id: TraumaRightArm
+  name: trauma unit right arm
+  description: A cybernetic right arm with the ability to pry doors open and integrated mantis blades.
+  components:
+  - type: BodyPart
+    onAdd:
+    - type: Prying
+      speedModifier: 1.5
+      pryPowered: true
+    - type: UseDelay # For insta prying
+      delay: 1
+  - type: MantisBladeArm
+    actionProto: ActionToggleRightMantisBlade
