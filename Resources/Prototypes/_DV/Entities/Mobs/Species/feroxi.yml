@@ -10,7 +10,7 @@
     hideLayersOnEquip:
     - Snout
   - type: Hunger
-  # - type: Carriable # ShibaStation - disabled because broken, for now.
+  - type: Carriable # ShibaStation - disabled because broken, for now. # Omu, re-enable
   - type: Inventory
     speciesId: feroxi
   - type: Thirst

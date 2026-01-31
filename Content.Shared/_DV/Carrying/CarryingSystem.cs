@@ -82,6 +82,7 @@ public sealed class CarryingSystem : EntitySystem
         SubscribeLocalEvent<BeingCarriedComponent, EscapeInventoryEvent>(OnDrop);
         SubscribeLocalEvent<CarriableComponent, CarryDoAfterEvent>(OnDoAfter);
         SubscribeLocalEvent<BeingCarriedComponent, EntityTerminatingEvent>(OnDelete);
+        SubscribeLocalEvent<BeingCarriedComponent, MoveInputEvent>(OnMoveInput);
     }
 
     private void AddCarryVerb(Entity<CarriableComponent> ent, ref GetVerbsEvent<AlternativeVerb> args)
@@ -200,7 +201,22 @@ public sealed class CarryingSystem : EntitySystem
         if (target != carrier && targetParent != carrier && targetParent != ent.Owner)
             args.Cancelled = true;
     }
+    // Omu Start
 
+    /// <summary>
+    /// Try to escape via the escape inventory system.
+    /// </summary>
+    private void OnMoveInput(EntityUid uid, BeingCarriedComponent component, ref MoveInputEvent args)
+    {
+        if (!TryComp<CanEscapeInventoryComponent>(uid, out var escape) || !args.HasDirectionalMovement)
+            return;
+
+        // Check if the victim is in any way incapacitated, and if not make an escape attempt.
+        // Escape time scales with the inverse of a mass contest. Being lighter makes escape harder.
+        if (_actionBlockerSystem.CanInteract(uid, component.Carrier))
+            _escapeInventorySystem.AttemptEscape(uid, component.Carrier, escape, _contests.MassContest(uid, component.Carrier, false, 2f));
+    }
+    // Omu end
     private void OnMoveAttempt(Entity<BeingCarriedComponent> ent, ref UpdateCanMoveEvent args)
     {
         args.Cancel();
