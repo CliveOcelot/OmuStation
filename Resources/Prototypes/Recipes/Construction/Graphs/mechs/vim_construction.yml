@@ -1,8 +1,3 @@
-# SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-#
-# SPDX-License-Identifier: MIT
-
 - type: constructionGraph
   id: Vim
   start: start
@@ -11,6 +6,9 @@
     edges:
     - to: vim
       steps:
+      - assemblyId: Vim
+        guideString: mech-construction-guide-string
+
       - tag: VoiceTrigger
         name: construction-graph-tag-voice-trigger
         icon:
@@ -20,14 +18,17 @@
         - !type:VisualizerDataInt
           key: "enum.MechAssemblyVisuals.State"
           data: 1
-      - component: PowerCell
-        name: construction-graph-component-power-cell
+      #Starlight Start - Mech Reactors
+      - tag: MechReactor
+        name: construction-graph-tag-mech-reactor
         store: battery-container
         icon:
-          sprite: Objects/Power/power_cells.rsi
-          state: small
+          sprite: _Starlight/Objects/Power/mech_reactors.rsi
+          state: medium
       - tool: Screwing
         doAfter: 1
+      #Starlight End
+
   - node: vim
     actions:
     - !type:BuildMech

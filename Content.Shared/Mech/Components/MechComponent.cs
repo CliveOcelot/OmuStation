@@ -1,25 +1,10 @@
-// SPDX-FileCopyrightText: 2022 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 LordEclipse <106132477+LordEclipse@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 NULL882 <gost6865@yandex.ru>
-// SPDX-FileCopyrightText: 2024 ScyronX <166930367+ScyronX@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
-// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 using Content.Shared.Whitelist;
+using Robust.Shared.Audio;
 using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Shared.Mech.Components;
 
@@ -27,15 +12,63 @@ namespace Content.Shared.Mech.Components;
 /// A large, pilotable machine that has equipment that is
 /// powered via an internal battery.
 /// </summary>
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState, AutoGenerateComponentPause]
 public sealed partial class MechComponent : Component
 {
     /// <summary>
-    /// Goobstation: Whether or not an emag disables it.
+    /// Starlight: when to next check if battery charge has changed for raising ChargeChangedEvent. Moved from MechThrustersComponent.
+    /// </summary>
+    [DataField("nextUpdate", customTypeSerializer: typeof(TimeOffsetSerializer))]
+    [AutoPausedField]
+    public TimeSpan NextUpdateTime;
+
+    /// <summary>
+    /// Starlight: How long to wait before checking again. Moved from MechThrustersComponent.
+    /// </summary>
+    [DataField]
+    public TimeSpan Delay = TimeSpan.FromSeconds(1);
+
+    /// <summary>
+    /// Whether or not an emag disables it.
     /// </summary>
     [DataField("breakOnEmag")]
     [AutoNetworkedField]
     public bool BreakOnEmag = true;
+
+    /// <summary>
+    /// is the mech in maintenance mode?
+    /// </summary>
+    [DataField("maintenance")]
+    [AutoNetworkedField]
+    public bool MaintenanceMode = false;
+
+    /// <summary>
+    /// is the mech internals enabled?
+    /// </summary>
+    [DataField("internals")]
+    [AutoNetworkedField]
+    public bool Internals = false;
+
+    /// <summary>
+    /// is the mech lights are toggled?
+    /// </summary>
+    [DataField("light")]
+    [AutoNetworkedField]
+    public bool Light = false;
+
+    /// <summary>
+    /// is the mech siren are toggled?
+    /// </summary>
+    [DataField("sirenToggled")]
+    [AutoNetworkedField]
+    public bool Siren = false;
+
+    /// <summary>
+    /// is the mech has siren?
+    /// </summary>
+    [DataField("siren")]
+    [AutoNetworkedField]
+    public bool SirenAvailable = false;
 
     /// <summary>
     /// How much "health" the mech has left.
@@ -71,6 +104,15 @@ public sealed partial class MechComponent : Component
 
     [ViewVariables]
     public readonly string BatterySlotId = "mech-battery-slot";
+
+    /// <summary>
+    /// The slot the gas tank is stored in.
+    /// </summary>
+    [ViewVariables]
+    public ContainerSlot GasTankSlot = default!;
+
+    [ViewVariables]
+    public readonly string GasTankSlotId = "mech-gas-tank-slot";
 
     /// <summary>
     /// A multiplier used to calculate how much of the damage done to a mech
@@ -116,10 +158,6 @@ public sealed partial class MechComponent : Component
     [DataField]
     public EntityWhitelist? PilotWhitelist;
 
-    [DataField]
-    public EntityWhitelist? PilotBlacklist; // Goobstation Change
-
-
     /// <summary>
     /// A container for storing the equipment entities.
     /// </summary>
@@ -148,6 +186,14 @@ public sealed partial class MechComponent : Component
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public float BatteryRemovalDelay = 2;
 
+    //Starlight Start
+    /// <summary>
+    /// Whitelist for allowed batteries.
+    /// </summary>
+    [DataField]
+    public EntityWhitelist? BatteryWhitelist;
+    //Starlight End
+
     /// <summary>
     /// Whether or not the mech is airtight.
     /// </summary>
@@ -169,11 +215,17 @@ public sealed partial class MechComponent : Component
     [DataField]
     public EntProtoId MechCycleAction = "ActionMechCycleEquipment";
     [DataField]
-    public EntProtoId ToggleAction = "ActionToggleLight"; //Goobstation Mech Lights toggle action
-    [DataField]
     public EntProtoId MechUiAction = "ActionMechOpenUI";
     [DataField]
     public EntProtoId MechEjectAction = "ActionMechEject";
+    [DataField]
+    public EntProtoId MechToggleLightAction = "ActionMechToggleLights";
+    [DataField]
+    public EntProtoId MechToggleInternalsAction = "ActionMechToggleInternals";
+    [DataField]
+    public EntProtoId MechToggleSirenAction = "ActionMechToggleSirens";
+    [DataField]
+    public EntProtoId MechToggleThrustersAction = "ActionMechToggleThrusters";
     #endregion
 
     #region Visualizer States
@@ -185,8 +237,39 @@ public sealed partial class MechComponent : Component
     public string? BrokenState;
     #endregion
 
+    #region Sounds
+    [DataField]
+    public SoundSpecifier ToggleLightSound = new SoundPathSpecifier("/Audio/Items/flashlight_pda.ogg");
+    [DataField]
+    public SoundSpecifier LowPowerSound = new SoundPathSpecifier("/Audio/Mecha/lowpower.ogg");
+    [DataField]
+    public SoundSpecifier NominalSound = new SoundPathSpecifier("/Audio/Mecha/nominal.ogg");
+    [DataField]
+    public SoundSpecifier NominalLongSound = new SoundPathSpecifier("/Audio/Mecha/longnanoactivation.ogg");
+    [DataField]
+    public SoundSpecifier PowerupSound = new SoundPathSpecifier("/Audio/Mecha/powerup.ogg");
+    [DataField]
+    public SoundSpecifier CriticalDamageSound = new SoundPathSpecifier("/Audio/Mecha/critnano.ogg");
+
+    [DataField]
+    public bool FirstStart = false;
+
+    [DataField]
+    public bool PlayPowerSound = true;
+    //Starlight Start
+    [DataField]
+    public bool PlayPowerUpSound = false;
+
+    [DataField]
+    public SoundSpecifier PowerDownSound = new SoundPathSpecifier("/Audio/Mecha/internaldmgalarm.ogg");
+    //Starlight End
+    #endregion
+
     [DataField] public EntityUid? MechCycleActionEntity;
     [DataField] public EntityUid? MechUiActionEntity;
     [DataField] public EntityUid? MechEjectActionEntity;
-    [DataField, AutoNetworkedField] public EntityUid? ToggleActionEntity; //Goobstation Mech Lights toggle action
+    [DataField] public EntityUid? MechToggleLightActionEntity;
+    [DataField] public EntityUid? MechToggleInternalsActionEntity;
+    [DataField] public EntityUid? MechToggleSirenActionEntity;
+    [DataField] public EntityUid? MechToggleThrustersActionEntity;
 }

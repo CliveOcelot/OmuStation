@@ -161,6 +161,7 @@ public abstract partial class SharedGunSystem : EntitySystem
         InitializeClothing();
         InitializeContainer();
         InitializeSolution();
+        InitializeMech(); //Starlight
         // Goobstation
         InitializeBasicHitScan();
 

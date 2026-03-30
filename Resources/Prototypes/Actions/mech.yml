@@ -1,11 +1,3 @@
-# SPDX-FileCopyrightText: 2022 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 metalgearsloth <comedian_vs_clown@hotmail.com>
-# SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: entity
   abstract: true
   parent: BaseAction
@@ -54,3 +46,88 @@
       state: mech_eject
   - type: InstantAction
     event: !type:MechEjectPilotEvent
+
+- type: entity
+  id: ActionMechToggleLights
+  name: Toggle Lights
+  description: Turn on mech-mounted spotlights for visibility in poorly lit areas.
+  components:
+  - type: Action
+    useDelay: 1
+    itemIconStyle: NoItem
+    icon:
+      sprite: Interface/Actions/actions_mecha.rsi
+      state: mech_lights_off
+    iconOn:
+      sprite: Interface/Actions/actions_mecha.rsi
+      state: mech_lights_on
+  - type: InstantAction
+    event: !type:ToggleActionEvent
+
+- type: entity
+  id: ActionMechToggleInternals
+  name: Toggle Internals
+  description: Start ventilating the interior from the gas tank.
+  components:
+  - type: Action
+    useDelay: 1
+    itemIconStyle: NoItem
+    icon:
+      sprite: Interface/Actions/actions_mecha.rsi
+      state: mech_internals_off
+    iconOn:
+      sprite: Interface/Actions/actions_mecha.rsi
+      state: mech_internals_on
+  - type: InstantAction
+    event: !type:MechToggleInternalsEvent
+
+- type: entity
+  id: ActionMechToggleSirens
+  name: Toggle Sirens
+  description: Turn on mech-mounted siren for everyone knows who's coming.
+  components:
+  - type: Action
+    useDelay: 1
+    itemIconStyle: NoItem
+    icon:
+      sprite: Interface/Actions/actions_mecha.rsi
+      state: mech_siren_off
+    iconOn:
+      sprite: Interface/Actions/actions_mecha.rsi
+      state: mech_siren_on
+  - type: InstantAction
+    event: !type:MechToggleSirensEvent
+
+- type: entity
+  id: ActionMechToggleThrusters
+  name: Toggle Thrusters
+  description: Turn on mech-mounted thrusters for flying in space.
+  components:
+  - type: Action
+    useDelay: 1
+    itemIconStyle: NoItem
+    icon:
+      sprite: Interface/Actions/actions_mecha.rsi
+      state: mech_thrusters_off
+    iconOn:
+      sprite: Interface/Actions/actions_mecha.rsi
+      state: mech_thrusters_on
+  - type: InstantAction
+    event: !type:MechToggleThrustersEvent
+
+- type: entity
+  id: ActionMechToggleNightVision
+  name: Toggle Camera
+  description: Turn on the night vision camera mounted on the Mech.
+  components:
+  - type: Action
+    useDelay: 1
+    itemIconStyle: NoItem
+    icon:
+      sprite: Interface/Actions/actions_mecha.rsi
+      state: mech_night_vision_off
+    iconOn:
+      sprite: Interface/Actions/actions_mecha.rsi
+      state: mech_night_vision_on
+  - type: InstantAction
+    event: !type:MechToggleNightVisionEvent

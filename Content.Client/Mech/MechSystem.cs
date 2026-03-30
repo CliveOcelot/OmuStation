@@ -1,10 +1,3 @@
-// SPDX-FileCopyrightText: 2022 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Mech;
 using Content.Shared.Mech.Components;
 using Content.Shared.Mech.EntitySystems;
@@ -32,7 +25,7 @@ public sealed class MechSystem : SharedMechSystem
         if (args.Sprite == null)
             return;
 
-        if (!_sprite.LayerExists((uid, args.Sprite), MechVisualLayers.Base))
+        if (!_sprite.TryGetLayer((uid, args.Sprite), MechVisualLayers.Base, out var _, false)) // Starlight change: Fixes mech visual sprites
             return;
 
         var state = component.BaseState;
@@ -47,6 +40,12 @@ public sealed class MechSystem : SharedMechSystem
             state = component.OpenState;
             drawDepth = DrawDepth.SmallMobs;
         }
+
+        if (args.Sprite.LayerMapTryGet(MechVisualLayers.Light, out var lightId) && args.Sprite.TryGetLayer(lightId, out var lightLayer) && _appearance.TryGetData<bool>(uid, MechVisuals.Light, out var light, args.Component))
+            lightLayer.Visible = light;
+
+        if (args.Sprite.LayerMapTryGet(MechVisualLayers.Siren, out var sirenId) && args.Sprite.TryGetLayer(sirenId, out var sirenLayer) && _appearance.TryGetData<bool>(uid, MechVisuals.Siren, out var siren, args.Component))
+            sirenLayer.Visible = siren;
 
         _sprite.LayerSetRsiState((uid, args.Sprite), MechVisualLayers.Base, state);
         _sprite.SetDrawDepth((uid, args.Sprite), (int)drawDepth);

@@ -1,17 +1,8 @@
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Kevin Zheng <kevinz5000@gmail.com>
-// SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Client.UserInterface.Fragments;
 using Content.Shared.Mech;
 using Content.Shared.Mech.Components;
 using JetBrains.Annotations;
+using Robust.Client.GameObjects;
 using Robust.Client.UserInterface;
 
 namespace Content.Client.Mech.Ui;
@@ -32,10 +23,18 @@ public sealed class MechBoundUserInterface : BoundUserInterface
 
         _menu = this.CreateWindowCenteredLeft<MechMenu>();
         _menu.SetEntity(Owner);
+        _menu.OpenCenteredLeft();
+
+        _menu.UpdateMaintenanceButtons();
 
         _menu.OnRemoveButtonPressed += uid =>
         {
             SendMessage(new MechEquipmentRemoveMessage(EntMan.GetNetEntity(uid)));
+        };
+
+        _menu.OnMaintenanceModeChanged += toggle =>
+        {
+            SendMessage(new MechMaintenanceUiMessage(toggle));
         };
     }
 
@@ -46,8 +45,9 @@ public sealed class MechBoundUserInterface : BoundUserInterface
         if (state is not MechBoundUiState msg)
             return;
         UpdateEquipmentControls(msg);
-        _menu?.UpdateMechStats();
-        _menu?.UpdateEquipmentView();
+        _menu?.UpdateMechStats(msg.Equipment.Count); // Starlight-edit: Correct equipment update
+        _menu?.UpdateEquipmentView(msg.Equipment); // Starlight-edit: Correct equipment update
+        _menu?.UpdateMaintenanceButtons();
     }
 
     public void UpdateEquipmentControls(MechBoundUiState state)

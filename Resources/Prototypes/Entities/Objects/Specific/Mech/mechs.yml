@@ -1,38 +1,75 @@
-# SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Flareguy <78941145+Flareguy@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Morb <14136326+Morb0@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 OttoMaticode <124523848+OttoMaticode@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 crazybrain23 <44417085+crazybrain23@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
-# SPDX-FileCopyrightText: 2023 lzk <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 metalgearsloth <comedian_vs_clown@hotmail.com>
-# SPDX-FileCopyrightText: 2024 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Jophire <36978900+Jophire@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 LittleNyanCat <littlenyancat204@gmail.com>
-# SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 NULL882 <gost6865@yandex.ru>
-# SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 ScyronX <166930367+ScyronX@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-# SPDX-FileCopyrightText: 2024 Token <esil.bektay@yandex.com>
-# SPDX-FileCopyrightText: 2024 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 deepdarkdepths <155149356+deepdarkdepths@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-# SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
-# SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
-# SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
-# SPDX-FileCopyrightText: 2025 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
+- type: entity
+  id: CombatMech
+  abstract: true
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Mech
+    equipmentWhitelist:
+      tags:
+      - CombatMech
+      - PaddyMech
+# 🌟Starlight-start🌟
+  - type: Prying
+    pryPowered: true
+# 🌟Starlight-end🌟
+
+- type: entity
+  id: IndustrialMech
+  abstract: true
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Mech
+    equipmentWhitelist:
+      tags:
+      - IndustrialMech
+
+- type: entity
+  id: SpecialMech
+  abstract: true
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Mech
+    equipmentWhitelist:
+      tags:
+      - SpecialMech
+
+- type: entity
+  id: SmallMech
+  abstract: true
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Mech
+    equipmentWhitelist:
+      tags:
+      - SmallMech
+
+- type: entity
+  id: NanotrasenMech
+  abstract: true
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Mech
+    firstStart: true
+    lowPowerSound:
+      path: /Audio/Mecha/lowpowernano.ogg
+    nominalSound:
+      path: /Audio/Mecha/nominalnano.ogg
+
+- type: entity
+  id: SyndieMech
+  abstract: true
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Mech
+    firstStart: true
+    lowPowerSound:
+      path: /Audio/Mecha/lowpowersyndi.ogg
+    nominalSound:
+      path: /Audio/Mecha/nominalsyndi.ogg
+    nominalLongSound:
+      path: /Audio/Mecha/longsyndiactivation.ogg
+    criticalDamageSound:
+      path: /Audio/Mecha/critdestrsyndi.ogg
 
 - type: entity
   id: BaseMech
@@ -41,48 +78,12 @@
   components:
   - type: MobMover
   - type: Mech
-    pilotBlacklist: # Goobstation Change
-      components:
-      - Zombie
-      - ZombieBlob
+# 🌟Starlight-start🌟
+    batteryWhitelist:
+      tags:
+      - MechReactor
+# 🌟Starlight-end🌟
   - type: MechAir
-  - type: AirFilter
-    # everything except oxygen and nitrogen
-    gases:
-    - CarbonDioxide
-    - Plasma
-    - Tritium
-    - WaterVapor
-    - Ammonia
-    - NitrousOxide
-    - Frezon
-    #- Helium3 TODO: fusion
-    # <Goobstation> - healium not included for ADVANCED mech trolling
-    - BZ
-    - Nitrium
-    # </Goobstation>
-    # remove everything except oxygen to maintain oxygen ratio
-    overflowGases:
-    - Nitrogen
-    - CarbonDioxide
-    - Plasma
-    - Tritium
-    - WaterVapor
-    - Ammonia
-    - NitrousOxide
-    - Frezon
-    #- Helium3 TODO: fusion
-    # <Goobstation>
-    - BZ
-    - Healium
-    - Nitrium
-    - Pluoxium
-    # </Goobstation>
-  - type: AirIntake
-  # for intake and filter to work
-  - type: AtmosDevice
-    requireAnchored: false
-    joinSystem: true
   - type: DoAfter
   - type: Repairable
     fuelCost: 25
@@ -92,7 +93,6 @@
       enum.MechUiKey.Key:
         type: MechBoundUserInterface
   - type: MeleeWeapon
-    canWideSwing: false
     hidden: true
     attackRate: 0.75
     damage:
@@ -107,7 +107,7 @@
   - type: InteractionOutline
   - type: MovementSpeedModifier
     baseWalkSpeed: 1
-    baseSprintSpeed: 1 #Goobedit
+    baseSprintSpeed: 2
   - type: Tag
     tags:
     - DoorBumpOpener
@@ -115,6 +115,7 @@
   - type: Pullable
   - type: Physics
     bodyType: KinematicController
+  - type: GravityAffected
   - type: Clickable
   - type: WiresPanel
   - type: Fixtures
@@ -134,10 +135,10 @@
       mech-pilot-slot: !type:ContainerSlot
       mech-equipment-container: !type:Container
       mech-battery-slot: !type:ContainerSlot
-      paper_label: !type:ContainerSlot # Goobstation
+      mech-gas-tank-slot: !type:ContainerSlot
   - type: Damageable
-    damageContainer: Silicon # Goobstation
-    damageModifierSet: LightArmor # Goobstation
+    damageContainer: Inorganic
+    damageModifierSet: LightArmor
   - type: FootstepModifier
     footstepSoundCollection:
       path: /Audio/Mecha/mechmove03.ogg
@@ -148,7 +149,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 1000 # Goobstation
+        damage: 1000
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -157,63 +158,42 @@
         node: start
       - !type:DoActsBehavior
         acts: ["Destruction"]
-  # Goobstation Change Start
-  - type: UnpoweredFlashlight # Goobstation mech lights for all mechs its unpowered to match hardsuits
-  - type: PointLight
+  - type: PowerCellDraw
     enabled: false
-    softness: 5
-    autoRot: true
-    mask: /Textures/Effects/LightMasks/cone.png
-    radius: 7
-    energy: 3
-    netsync: false
-  - type: GenericVisualizer
-    visuals:
-      enum.PaperLabelVisuals.HasLabel:
-        enum.PaperLabelVisuals.Layer:
-          True: { visible: true }
-          False: { visible: false }
-      enum.PaperLabelVisuals.LabelType:
-        enum.PaperLabelVisuals.Layer:
-          Paper: { state: paper }
-          Bounty: { state: bounty }
-          CaptainsPaper: { state: captains_paper }
-          Invoice: { state: invoice }
-  - type: PaperLabel
-    labelSlot:
-      insertVerbText: Attach Label
-      ejectVerbText: Remove Label
-      whitelist:
-        components:
-        - Paper
-      blacklist:
-        tags:
-        - Book
-  - type: StaticPrice
-    price: 450
-  - type: DragDropTargetable
-  # Goobstation Change End
+    drawRate: 0.333333333 #Starlight, delay was 3 seconds per draw
+  - type: ActiveInputMover
+# 🌟Starlight-start🌟
+  - type: Prying
+    pryPowered: false
+    force: false
+    useSound: /Audio/Items/jaws_pry.ogg
+# 🌟Starlight-end🌟
 
+# Ripley MK-I
 - type: entity
   id: MechRipley
-  parent: [ BaseMech, IndustrialMech, BaseCargoContraband ] # Goobstation
+  parent: [ BaseMech, IndustrialMech, BaseCargoContraband ]
   name: Ripley APLU
   description: Versatile and lightly armored, the Ripley is useful for almost any heavy work scenario. The "APLU" stands for Autonomous Power Loading Unit.
   components:
   - type: Sprite
     drawdepth: Mobs
     noRot: true
-    sprite: Objects/Specific/Mech/mecha.rsi
+    sprite: Objects/Specific/Mech/Mechs/Basic/ripley.rsi
     layers:
     - map: [ "enum.MechVisualLayers.Base" ]
-      state: ripley
+      state: base
   - type: FootstepModifier
     footstepSoundCollection:
       path: /Audio/Mecha/sound_mecha_powerloader_step.ogg
   - type: Mech
-    baseState: ripley
-    openState: ripley-open
-    brokenState: ripley-broken
+    equipmentWhitelist:
+      tags:
+      - IndustrialMech
+      - RipleyMKIIUpgradeKit
+    baseState: base
+    openState: base-open
+    brokenState: base-broken
     mechToPilotDamageMultiplier: 0.75
     pilotWhitelist:
       components:
@@ -223,11 +203,20 @@
     attackRate: 1
     damage:
       types:
-        Blunt: 25 # Goobstation - Make ripley punch hard
-        Structural: 30 # Goobstation - Make ripley punch hard
+        Blunt: 25 #Starlight - Ripley gets to punch, but is *not* safe
   - type: MovementSpeedModifier
-    baseWalkSpeed: 2.25
-    baseSprintSpeed: 2.25 #Goobedit
+    baseWalkSpeed: 2 #Starlight - All mechs walk at the same speed
+    baseSprintSpeed: 3.6
+  - type: PointLight
+    mask: /Textures/Effects/LightMasks/cone.png
+    autoRot: true
+    radius: 3
+    energy: 5
+    enabled: false
+  - type: Construction
+    graph: RipleyMKIIUpgrade
+    node: start
+    defaultTarget: ripleymkii
 
 - type: entity
   id: MechRipleyBattery
@@ -237,10 +226,211 @@
   - type: ContainerFill
     containers:
       mech-battery-slot:
-      - PowerCellHigh
+      - MechReactorHigh #Starlight - MechReactors
+
+# Ripley MK-II
+- type: entity
+  id: MechRipley2
+  parent: [ BaseMech, IndustrialMech, BaseCargoContraband ]
+  name: Ripley APLU MK-II
+  description: The "MK-II" has a pressurized cabin for space operations, and stronger clamps are able to force doors open, but the added weight has slowed it down. # 🌟Starlight-Change
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    noRot: true
+    sprite: Objects/Specific/Mech/Mechs/Basic/ripleymkii.rsi
+    layers:
+    - map: [ "enum.MechVisualLayers.Base" ]
+      state: base
+  - type: FootstepModifier
+    footstepSoundCollection:
+      path: /Audio/Mecha/sound_mecha_powerloader_step.ogg
+  - type: Mech
+    equipmentWhitelist:
+      tags:
+      - IndustrialMech
+      - PaddyUpgradeKit
+    baseState: base
+    openState: base-open
+    brokenState: base-broken
+    mechToPilotDamageMultiplier: 0.0 #Starlight - Mechs are safe
+    airtight: true
+    pilotWhitelist:
+      components:
+        - HumanoidAppearance
+  - type: MeleeWeapon
+    hidden: true
+    attackRate: 1
+    damage:
+      types:
+  #Starlight Start
+        Blunt: 25 #brought in line with Ripley
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2 #All mechs walk at the same speed
+    baseSprintSpeed: 3.0 #Mk II is still slower, but not unusably slow
+  #Starlight End
+  - type: Damageable
+    damageModifierSet: MediumArmorNT
+  - type: PointLight
+    mask: /Textures/Effects/LightMasks/cone.png
+    autoRot: true
+    radius: 3
+    energy: 5
+    enabled: false
+  - type: Construction
+    graph: PaddyUpgrade
+    node: start
+    defaultTarget: paddy
+# 🌟Starlight-start🌟
+  - type: Prying
+    pryPowered: true
+# 🌟Starlight-end🌟
 
 - type: entity
-  parent: [ BaseMech, SpecialMech, BaseCivilianContraband ] # Goobstation
+  id: MechRipley2Battery
+  parent: MechRipley2
+  suffix: Battery, Air
+  components:
+  - type: ContainerFill
+    containers:
+      mech-battery-slot:
+      - MechReactorHigh #Starlight - MechReactors
+      mech-gas-tank-slot:
+      - MechAirTankFilled
+
+# Paddy
+- type: entity
+  id: MechPaddy
+  parent: [ BaseMech, CombatMech, IndustrialMech, BaseSecurityContraband ]
+  name: Paddy
+  description: Autonomous Power Loader Unit Subtype Paddy. A Modified MK-II Ripley design intended for light security use.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    noRot: true
+    sprite: Objects/Specific/Mech/Mechs/Basic/paddy.rsi
+    layers:
+    - map: [ "enum.MechVisualLayers.Base" ]
+      state: base
+    - state: base-sirens
+      map: [ "enum.MechVisualLayers.Siren" ]
+      shader: unshaded
+  - type: FootstepModifier
+    footstepSoundCollection:
+      path: /Audio/Mecha/sound_mecha_powerloader_step.ogg
+  - type: Mech
+    equipmentWhitelist:
+      tags:
+      - PaddyMech
+      - IndustrialMech
+    baseState: base
+    openState: base-open
+    brokenState: base-broken
+    mechToPilotDamageMultiplier: 0.0 #Starlight - Mechs are safe
+    airtight: true
+    maxEquipmentAmount: 4 # 🌟Starlight-Change
+    pilotWhitelist:
+      components:
+        - HumanoidAppearance
+    siren: true
+  - type: MeleeWeapon
+    hidden: true
+    attackRate: 1
+    bluntStaminaDamageFactor: 1.5 # 🌟Starlight-Change
+    damage:
+      types:
+        Blunt: 30 #Decent for a loader, but without the high structural damage of a combat mech. #
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2 #Starlight - All mechs walk at the same speed
+    baseSprintSpeed: 4
+  - type: PointLight
+    mask: /Textures/Effects/LightMasks/cone.png
+    autoRot: true
+    radius: 5
+    energy: 5
+    enabled: false
+
+- type: entity
+  id: MechPaddyBattery
+  parent: MechPaddy
+  suffix: Battery, Air
+  components:
+  - type: ContainerFill
+    containers:
+      mech-battery-slot:
+      - MechReactorHigh #Starlight - MechReactors
+      mech-gas-tank-slot:
+      - MechAirTankFilled
+
+- type: entity
+  id: MechPaddyFilled
+  parent: MechPaddyBattery
+  suffix: Battery, Air, Filled
+  components:
+  - type: Mech
+    startingEquipment:
+      - WeaponMechCombatDisabler
+      - WeaponMechCombatFlashbangLauncher
+#      - MechEquipmentSecGrabber
+
+# Clarke
+- type: entity
+  id: MechClarke
+  parent: [ BaseMech, IndustrialMech, BaseCargoContraband ]
+  name: Clarke
+  description: A fast-moving mech for space travel. It has built-in trusts.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    noRot: true
+    sprite: Objects/Specific/Mech/Mechs/Basic/clarke.rsi
+    layers:
+    - map: [ "enum.MechVisualLayers.Base" ]
+      state: base
+  - type: FootstepModifier
+    footstepSoundCollection:
+      path: /Audio/Mecha/sound_mecha_powerloader_step.ogg
+  - type: Mech
+    baseState: base
+    openState: base-open
+    brokenState: base-broken
+    mechToPilotDamageMultiplier: 0.0 #Starlight - Mechs are safe
+    airtight: true
+    pilotWhitelist:
+      components:
+        - HumanoidAppearance
+  - type: MeleeWeapon
+    hidden: true
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 26
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2 #Starlight - All mechs walk at the same speed
+    baseSprintSpeed: 4.5
+  - type: MechThrusters
+  - type: PointLight
+    mask: /Textures/Effects/LightMasks/cone.png
+    autoRot: true
+    radius: 7
+    energy: 6
+    enabled: false
+
+- type: entity
+  id: MechClarkeBattery
+  parent: MechClarke
+  suffix: Battery, Air
+  components:
+  - type: ContainerFill
+    containers:
+      mech-battery-slot:
+      - MechReactorHigh #Starlight - MechReactors
+      mech-gas-tank-slot:
+      - MechAirTankFilled
+
+# H.O.N.K.
+- type: entity
+  parent: [ BaseMech, SpecialMech, BaseCivilianContraband ]
   id: MechHonker
   name: H.O.N.K.
   description: "Produced by \"Tyranny of Honk, INC\", this exosuit is designed as heavy clown-support. Used to spread the fun and joy of life. HONK!"
@@ -248,24 +438,21 @@
   - type: Sprite
     drawdepth: Mobs
     noRot: true
-    sprite: Objects/Specific/Mech/mecha.rsi
+    sprite: Objects/Specific/Mech/Mechs/Basic/honker.rsi
     layers:
     - map: [ "enum.MechVisualLayers.Base" ]
-      state: honker
+      state: base
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepClown
       params:
         variation: 0.17
-  - type: MovementSpeedModifier
-    baseWalkSpeed: 2
-    baseSprintSpeed: 2.5 #Goobedit
   - type: Mech
-    baseState: honker
-    openState: honker-open
-    brokenState: honker-broken
-    mechToPilotDamageMultiplier: 0.5
-    airtight: true # Goobstation - Space Honk is real.
+    baseState: base
+    openState: base-open
+    brokenState: base-broken
+    mechToPilotDamageMultiplier: 0.0 #Starlight - Mechs are safe
+    airtight: true # Space Honks is real.
     pilotWhitelist:
       components:
       - HumanoidAppearance
@@ -278,10 +465,22 @@
   - type: ContainerFill
     containers:
       mech-battery-slot:
-      - PowerCellHigh
+      - MechReactorHigh #Starlight - MechReactors
 
 - type: entity
-  parent: [ BaseMech, SmallMech ] # Goobstation
+  parent: MechHonkerBattery
+  id: MechHonkerFilled
+  suffix: Battery, Filled
+  components:
+  - type: Mech
+    startingEquipment:
+      - WeaponMechSpecialBananaMortar
+      - WeaponMechSpecialMousetrapMortar
+      - MechEquipmentHorn
+
+# HAMTR
+- type: entity
+  parent: [ BaseMech, SmallMech ]
   id: MechHamtr
   name: HAMTR
   description: "An experimental mech which uses a brain–computer interface to connect directly to a hamsters brain."
@@ -289,18 +488,18 @@
   - type: Sprite
     drawdepth: Mobs
     noRot: true
-    sprite: Objects/Specific/Mech/mecha.rsi
+    sprite: Objects/Specific/Mech/Mechs/Basic/hamtr.rsi
     layers:
     - map: [ "enum.MechVisualLayers.Base" ]
-      state: hamtr
+      state: base
   - type: FootstepModifier
     footstepSoundCollection:
       path: /Audio/Mecha/sound_mecha_powerloader_step.ogg
   - type: Mech
-    baseState: hamtr
-    openState: hamtr-open
-    brokenState: hamtr-broken
-    mechToPilotDamageMultiplier: 0.2
+    baseState: base
+    openState: base-open
+    brokenState: base-broken
+    mechToPilotDamageMultiplier: 0.0 #Starlight - Mechs are safe
     maxEquipmentAmount: 2
     airtight: true
     pilotWhitelist:
@@ -314,18 +513,20 @@
         Blunt: 10 #thwack
         Structural: 2
   - type: MovementSpeedModifier
-    baseWalkSpeed: 2.4
-    baseSprintSpeed: 2.4 #Goobedit
+    baseWalkSpeed: 2 #Starlight - All mechs walk at the same speed
+    baseSprintSpeed: 3.7
 
 - type: entity
   parent: MechHamtr
   id: MechHamtrBattery
-  suffix: Battery
+  suffix: Battery, Air
   components:
   - type: ContainerFill
     containers:
       mech-battery-slot:
-      - PowerCellHigh
+      - MechReactorHigh #Starlight - MechReactors
+      mech-gas-tank-slot:
+      - MechAirTankFilled
 
 # Vim!!!!!!!
 
@@ -338,10 +539,10 @@
   - type: Sprite
     drawdepth: Mobs
     noRot: true
-    sprite: Objects/Specific/Mech/mecha.rsi
+    sprite: Objects/Specific/Mech/Mechs/Basic/vim.rsi
     layers:
     - map: [ "enum.MechVisualLayers.Base" ]
-      state: vim
+      state: base
   - type: Fixtures
     fixtures:
       fix1:
@@ -359,12 +560,12 @@
       params:
         volume: -10
   - type: Mech
-    baseState: vim
-    openState: vim-open
-    brokenState: vim-broken
+    baseState: base
+    openState: base-open
+    brokenState: base-broken
     maxEquipmentAmount: 0
     # keep mouse safe
-    mechToPilotDamageMultiplier: 0.1
+    mechToPilotDamageMultiplier: 0.0 #Starlight - Mechs are safe
     airtight: true
     pilotWhitelist:
       tags:
@@ -377,8 +578,8 @@
         Blunt: 10 #thwack
         Structural: 2
   - type: MovementSpeedModifier
-    baseWalkSpeed: 2.25
-    baseSprintSpeed: 2.25 #Goobedit
+    baseWalkSpeed: 2 #Starlight - All mechs walk at the same speed
+    baseSprintSpeed: 3.6
   - type: Access
     tags:
     - Maintenance
@@ -388,9 +589,431 @@
 - type: entity
   parent: MechVim
   id: MechVimBattery
-  suffix: Battery
+  suffix: Battery, Air
   components:
   - type: ContainerFill
     containers:
       mech-battery-slot:
-      - PowerCellHigh
+      - MechReactorHigh #Starlight - MechReactors
+      mech-gas-tank-slot:
+      - MechAirTankFilled
+
+# Combat-Station Mechs
+
+# Gygax
+- type: entity
+  id: MechGygax
+  parent: [ BaseMech, CombatMech, BaseSecurityContraband ]
+  name: Gygax
+  description: While lightly armored, the Gygax has incredible mobility thanks to its ability that lets it smash through walls at high speeds.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    noRot: true
+    sprite: Objects/Specific/Mech/Mechs/Basic/gygax.rsi
+    layers:
+    - map: [ "enum.MechVisualLayers.Base" ]
+      state: base
+  - type: FootstepModifier
+    footstepSoundCollection:
+      path: /Audio/Mecha/sound_mecha_powerloader_step.ogg
+  - type: Mech
+    baseState: base
+    openState: base-open
+    brokenState: base-broken
+    mechToPilotDamageMultiplier: 0.0 #Starlight - Mechs are safe
+    airtight: true
+    maxIntegrity: 325
+    pilotWhitelist:
+      components:
+        - HumanoidAppearance
+  - type: MeleeWeapon
+    hidden: true
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 30 #THWACK
+        Structural: 180
+  - type: MovementSpeedModifier
+# 🌟Starlight-start🌟
+    baseWalkSpeed: 2 #All mechs walk at the same speed
+    baseSprintSpeed: 4.0
+# 🌟Starlight-end🌟
+  - type: Damageable
+    damageModifierSet: GygaxArmor
+  - type: MechThrusters
+  - type: PointLight
+    mask: /Textures/Effects/LightMasks/cone.png
+    autoRot: true
+    radius: 6
+    energy: 5
+    enabled: false
+
+- type: entity
+  id: MechGygaxBattery
+  parent: MechGygax
+  suffix: Battery, Air
+  components:
+  - type: ContainerFill
+    containers:
+      mech-battery-slot:
+      - MechReactorHigh #Starlight - MechReactors
+      mech-gas-tank-slot:
+      - MechAirTankFilled
+
+# Durand
+- type: entity
+  id: MechDurand
+  parent: [ BaseMech, CombatMech, BaseSecurityContraband ]
+  name: Durand
+  description: A slow but beefy combat exosuit that is extra scary in confined spaces due to its punches. Xenos hate it!
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    noRot: true
+    sprite: Objects/Specific/Mech/Mechs/Basic/durand.rsi
+    layers:
+    - map: [ "enum.MechVisualLayers.Base" ]
+      state: base
+  - type: FootstepModifier
+    footstepSoundCollection:
+      path: /Audio/Mecha/sound_mecha_powerloader_step.ogg
+  - type: Mech
+    baseState: base
+    openState: base-open
+    brokenState: base-broken
+    mechToPilotDamageMultiplier: 0.0 #Starlight - Mechs are safe
+    airtight: true
+    maxIntegrity: 465
+    pilotWhitelist:
+      components:
+        - HumanoidAppearance
+  - type: MeleeWeapon
+    hidden: true
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 40
+        Structural: 220
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2 #Starlight - All mechs walk at the same speed
+    baseSprintSpeed: 2.8 #Starlight - No longer unusably slow
+  - type: Damageable
+    damageModifierSet: DurandArmor
+  - type: MechThrusters
+  - type: Repairable
+    fuelCost: 30
+    doAfterDelay: 15
+  - type: PointLight
+    mask: /Textures/Effects/LightMasks/cone.png
+    autoRot: true
+    radius: 7
+    energy: 5
+    enabled: false
+
+- type: entity
+  id: MechDurandBattery
+  parent: MechDurand
+  suffix: Battery, Air
+  components:
+  - type: ContainerFill
+    containers:
+      mech-battery-slot:
+      - MechReactorHigh #Starlight - MechReactors
+      mech-gas-tank-slot:
+      - MechAirTankFilled
+
+# Nanotrasen Combat Mechs
+
+# Marauder
+- type: entity
+  id: MechMarauder
+  parent: [ BaseMech, CombatMech, BaseCentcommContraband, NanotrasenMech ]
+  name: Marauder
+  description: Looks like we're all saved. # ERT mech
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    noRot: true
+    sprite: Objects/Specific/Mech/mecha.rsi
+    layers:
+    - map: [ "enum.MechVisualLayers.Base" ]
+      state: marauder
+  - type: FootstepModifier
+    footstepSoundCollection:
+      path: /Audio/Mecha/sound_mecha_powerloader_step.ogg
+  - type: Mech
+    baseState: marauder
+    openState: marauder-open
+    brokenState: marauder-broken
+    mechToPilotDamageMultiplier: 0.0 #Starlight - Mechs are safe
+    airtight: true
+    maxIntegrity: 575
+    maxEquipmentAmount: 4
+    pilotWhitelist:
+      components:
+        - HumanoidAppearance
+  - type: MeleeWeapon
+    hidden: true
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 40
+        Structural: 200
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2 #Starlight - All mechs walk at the same speed
+    baseSprintSpeed: 2.2 #Starlight - No longer unusably slow
+  - type: Damageable
+    damageModifierSet: HeavyArmorNT
+  - type: MechThrusters
+  - type: Repairable
+    fuelCost: 30
+    doAfterDelay: 15
+
+- type: entity
+  id: MechMarauderBattery
+  parent: MechMarauder
+  suffix: Battery, Air
+  components:
+  - type: ContainerFill
+    containers:
+      mech-battery-slot:
+      - MechReactorHyper #Starlight - MechReactors
+      mech-gas-tank-slot:
+      - MechAirTankFilled
+
+- type: entity
+  id: MechMarauderFilled
+  parent: MechMarauderBattery
+  suffix: Battery, Filled
+  components:
+  - type: Mech
+    startingEquipment:
+      - WeaponMechChainSword
+      - WeaponMechCombatPulseRifle
+      - WeaponMechCombatUltraRifle
+      - WeaponMechCombatMissileRack8
+
+# Seraph
+- type: entity
+  id: MechSeraph
+  parent: [ BaseMech, CombatMech, BaseCentcommContraband, NanotrasenMech ]
+  name: Seraph
+  description: That's the last thing you'll see. # Death Squad mech
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    noRot: true
+    sprite: Objects/Specific/Mech/mecha.rsi
+    layers:
+    - map: [ "enum.MechVisualLayers.Base" ]
+      state: seraph
+  - type: FootstepModifier
+    footstepSoundCollection:
+      path: /Audio/Mecha/sound_mecha_powerloader_step.ogg
+  - type: Mech
+    baseState: seraph
+    openState: seraph-open
+    brokenState: seraph-broken
+    mechToPilotDamageMultiplier: 0.0 #Starlight - Mechs are safe
+    airtight: true
+    maxIntegrity: 700
+    maxEquipmentAmount: 5
+    pilotWhitelist:
+      components:
+        - HumanoidAppearance
+  - type: MeleeWeapon
+    hidden: true
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 60
+        Structural: 400
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2 #Starlight - All mechs walk at the same speed
+    baseSprintSpeed: 3.7
+  - type: Damageable
+    damageModifierSet: HeavyArmorNT
+  - type: MechThrusters
+  - type: Repairable
+    fuelCost: 30
+    doAfterDelay: 20
+
+- type: entity
+  id: MechSeraphBattery
+  parent: MechSeraph
+  suffix: Battery, Air
+  components:
+  - type: ContainerFill
+    containers:
+      mech-battery-slot:
+      - MechReactorAntique #Starlight - MechReactors
+      mech-gas-tank-slot:
+      - MechAirTankFilled
+
+- type: entity
+  id: MechSeraphFilled
+  parent: MechSeraphBattery
+  suffix: Battery, Filled
+  components:
+  - type: Mech
+    startingEquipment:
+      - WeaponMechChainSword
+      - WeaponMechCombatPulseRifle
+      - WeaponMechCombatShotgun
+      - WeaponMechCombatMissileRack6
+      - WeaponMechCombatUltraRifle
+
+# Syndicate Combat Mech
+
+# Dark Gygax
+- type: entity
+  id: MechGygaxSyndie
+  parent: [ BaseMech, CombatMech, BaseSyndicateContraband, SyndieMech ]
+  name: Dark Gygax
+  description: A modified Gygax used for nefarious purposes. On the back of the armor plate there is an inscription "Cybersun Inc."
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    noRot: true
+    sprite: Objects/Specific/Mech/mecha.rsi
+    layers:
+    - map: [ "enum.MechVisualLayers.Base" ]
+      state: darkgygax
+  - type: FootstepModifier
+    footstepSoundCollection:
+      path: /Audio/Mecha/sound_mecha_powerloader_step.ogg
+  - type: Mech
+    baseState: darkgygax
+    openState: darkgygax-open
+    brokenState: darkgygax-broken
+    mechToPilotDamageMultiplier: 0.0 #Starlight - Mechs are safe
+    airtight: true
+    maxIntegrity: 375
+    maxEquipmentAmount: 4
+    pilotWhitelist:
+      components:
+        - HumanoidAppearance
+  - type: MeleeWeapon
+    hidden: true
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 30
+        Structural: 200
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2 #Starlight - All mechs walk at the same speed
+    baseSprintSpeed: 4.5 # 🌟Starlight-Change - Faster than regular Gygax
+  - type: Damageable
+    damageModifierSet: MediumArmorSyndi
+  - type: MechThrusters
+  - type: Repairable
+    fuelCost: 40
+    doAfterDelay: 20
+  - type: PointLight
+    mask: /Textures/Effects/LightMasks/cone.png
+    autoRot: true
+    radius: 7
+    energy: 6
+    enabled: false
+
+- type: entity
+  id: MechGygaxSyndieBattery
+  parent: MechGygaxSyndie
+  suffix: Battery, Air
+  components:
+  - type: ContainerFill
+    containers:
+      mech-battery-slot:
+      - MechReactorMicro #Starlight - MechReactors
+      mech-gas-tank-slot:
+      - MechAirTankFilled
+
+- type: entity
+  id: MechGygaxSyndieFilled
+  parent: MechGygaxSyndieBattery
+  suffix: Battery, Filled
+  components:
+  - type: Mech
+    startingEquipment:
+      - WeaponMechChainSword
+      - WeaponMechCombatShotgun
+      - WeaponMechCombatMissileRack8
+      - WeaponMechCombatTeslaCannon
+
+# Mauler
+- type: entity
+  id: MechMaulerSyndie
+  parent: [ BaseMech, CombatMech, BaseSyndicateContraband, SyndieMech ]
+  name: Mauler
+  description: A modified Marauder used by the Syndicate that's not as maneuverable as the Dark Gygax, but it makes up for that in armor and sheer firepower. On the back of the armor plate there is an inscription "Cybersun Inc."
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    noRot: true
+    sprite: Objects/Specific/Mech/mecha.rsi
+    layers:
+    - map: [ "enum.MechVisualLayers.Base" ]
+      state: mauler
+  - type: FootstepModifier
+    footstepSoundCollection:
+      path: /Audio/Mecha/sound_mecha_powerloader_step.ogg
+  - type: Mech
+    baseState: mauler
+    openState: mauler-open
+    brokenState: mauler-broken
+    mechToPilotDamageMultiplier: 0.0 #Starlight - Mechs are safe
+    airtight: true
+    maxIntegrity: 550
+    maxEquipmentAmount: 5
+    pilotWhitelist:
+      components:
+        - HumanoidAppearance
+  - type: MeleeWeapon
+    hidden: true
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 50
+        Structural: 400
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2 #Starlight - All mechs walk at the same speed
+    baseSprintSpeed: 2.2 #Starlight - No longer unusably slow
+  - type: Damageable
+    damageModifierSet: MaulerArmor
+  - type: MechThrusters
+  - type: Repairable
+    fuelCost: 50
+    doAfterDelay: 25
+  - type: PointLight
+    mask: /Textures/Effects/LightMasks/cone.png
+    autoRot: true
+    radius: 6
+    energy: 5
+    color: "#ff0000"
+    enabled: false
+
+- type: entity
+  id: MechMaulerSyndieBattery
+  parent: MechMaulerSyndie
+  suffix: Battery, Air
+  components:
+  - type: ContainerFill
+    containers:
+      mech-battery-slot:
+      - MechReactorMicro #Starlight - MechReactors
+      mech-gas-tank-slot:
+      - MechAirTankFilled
+
+- type: entity
+  id: MechMaulerSyndieFilled
+  parent: MechMaulerSyndieBattery
+  suffix: Battery, Filled
+  components:
+  - type: Mech
+    startingEquipment:
+      - WeaponMechChainSword
+      - WeaponMechCombatUltraRifle
+      - WeaponMechCombatShotgun
+      - WeaponMechCombatMissileRack6
+      - WeaponMechCombatTeslaCannon
