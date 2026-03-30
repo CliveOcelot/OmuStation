@@ -100,6 +100,7 @@ using Content.Server.Humanoid;
 using Content.Server.IdentityManagement;
 using Content.Server.Mind;
 using Content.Server.PDA;
+using Content.Server.Spawners.Components; // Omu
 using Content.Server.Station.Components;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
@@ -153,12 +154,12 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
     /// <remarks>
     /// This only spawns the character, and does none of the mind-related setup you'd need for it to be playable.
     /// </remarks>
-    public EntityUid? SpawnPlayerCharacterOnStation(EntityUid? station, ProtoId<JobPrototype>? job, HumanoidCharacterProfile? profile, StationSpawningComponent? stationSpawning = null)
+    public EntityUid? SpawnPlayerCharacterOnStation(EntityUid? station, ProtoId<JobPrototype>? job, HumanoidCharacterProfile? profile, StationSpawningComponent? stationSpawning = null,  SpawnPointType spawnPointType = SpawnPointType.Unset) // DeltaV, add SpawnPointType
     {
         if (station != null && !Resolve(station.Value, ref stationSpawning))
             throw new ArgumentException("Tried to use a non-station entity as a station!", nameof(station));
 
-        var ev = new PlayerSpawningEvent(job, profile, station);
+        var ev = new PlayerSpawningEvent(job, profile, station, spawnPointType); // DeltaV, add SpawnPointType
 
         RaiseLocalEvent(ev);
         DebugTools.Assert(ev.SpawnResult is { Valid: true } or null);
@@ -342,11 +343,16 @@ public sealed class PlayerSpawningEvent : EntityEventArgs
     /// The target station, if any.
     /// </summary>
     public readonly EntityUid? Station;
+    /// <summary>
+    /// DeltaV: Desired SpawnPointType, if any.
+    /// </summary>
+    public readonly SpawnPointType DesiredSpawnPointType;
 
-    public PlayerSpawningEvent(ProtoId<JobPrototype>? job, HumanoidCharacterProfile? humanoidCharacterProfile, EntityUid? station)
+    public PlayerSpawningEvent(ProtoId<JobPrototype>? job, HumanoidCharacterProfile? humanoidCharacterProfile, EntityUid? station, SpawnPointType spawnPointType = SpawnPointType.Unset) // DeltaV, add SpawnPointType
     {
         Job = job;
         HumanoidCharacterProfile = humanoidCharacterProfile;
         Station = station;
+        DesiredSpawnPointType = spawnPointType; // DeltaV
     }
 }

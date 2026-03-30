@@ -4,6 +4,7 @@
   description: job-description-transit-prisoner
   playTimeTracker: JobTransitPrisoner
   overrideConsoleVisibility: true
+  alwaysUseSpawner: true
   requirements:
   - !type:DepartmentTimeRequirement
     department: Security
