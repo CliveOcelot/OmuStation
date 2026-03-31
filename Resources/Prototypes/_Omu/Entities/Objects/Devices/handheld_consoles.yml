@@ -1,0 +1,65 @@
+
+- type: entity
+  id: BaseHandheldResearchConsole
+  name: handheld research console
+  description: Fine-crafted handheld research console for Research Directors.
+  parent: BaseItem
+  components:
+    - type: Sprite
+      sprite: _Goobstation/Objects/Devices/tablets.rsi
+      layers:
+        - state: tablet
+        - state: powerconsole
+          shader: unshaded
+    - type: ResearchClient
+    - type: ResearchConsole
+    - type: ActiveRadio
+      channels:
+      - Science
+    - type: TechnologyDatabase
+    - type: ActivatableUI
+      inHandsOnly: true
+      singleUser: true
+      key: enum.ResearchConsoleUiKey.Key
+    - type: UserInterface
+      interfaces:
+        enum.ResearchConsoleUiKey.Key:
+          type: FancyResearchConsoleBoundUserInterface # R&D Console rework
+        enum.ResearchClientUiKey.Key:
+          type: ResearchClientBoundUserInterface
+    - type: AccessReader
+      access: [["Research"]]
+    - type: GuideHelp
+      guides:
+      - Science
+
+- type: entity
+  id: BaseHandheldCommsConsoleConsole
+  name: handheld communications console
+  description: Fine-crafted handheld communications console for Captains.
+  parent: BaseItem
+  components:
+    - type: Sprite
+      sprite: _Goobstation/Objects/Devices/tablets.rsi
+      layers:
+        - state: tablet
+        - state: powerconsole
+          shader: unshaded
+    - type: ActivatableUI
+      inHandsOnly: true
+      singleUser: true
+      key: enum.CommunicationsConsoleUiKey.Key
+    - type: UserInterface
+      interfaces:
+        enum.CommunicationsConsoleUiKey.Key:
+          type: CommunicationsConsoleBoundUserInterface
+        enum.WiresUiKey.Key:
+          type: WiresBoundUserInterface
+    - type: AccessReader
+      access: [[ "Command" ]]
+    - type: CommunicationsConsole
+      title: handheld-comms-console-announcement-title-station
+      canShuttle: false
+    - type: DeviceNetwork
+      deviceNetId: Wireless
+      transmitFrequencyId: ShuttleTimer

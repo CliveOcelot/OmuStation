@@ -5,3 +5,6 @@ comms-console-announcement-title-security = Security
 comms-console-announcement-title-medical = Medical
 comms-console-announcement-title-service = Service
 comms-console-announcement-title-engi = Engineering
+
+# Omu
+handheld-comms-console-announcement-title-station = Handheld Communications Console
