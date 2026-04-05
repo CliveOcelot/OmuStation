@@ -63,21 +63,23 @@
   id: GunneryServerLow
   parent: GunneryServerBase
   name: low-power gunnery control server
+  suffix: 24 Power # Omu
   components:
   - type: Machine
     board: MachineGCSLowCircuitboard
   - type: FireControlServer
-    processingPower: 8
+    processingPower: 24 # Omu
 
 - type: entity
   id: GunneryServerMedium
   parent: GunneryServerBase
   name: medium-power gunnery control server
+  suffix: 42 Power # Omu
   components:
   - type: Machine
     board: MachineGCSMediumCircuitboard
   - type: FireControlServer
-    processingPower: 14
+    processingPower: 42 # Omu
   - type: ApcPowerReceiver
     powerLoad: 1250
   - type: PowerCharge
@@ -89,11 +91,12 @@
   id: GunneryServerHigh
   parent: GunneryServerBase
   name: high-power gunnery control server
+  suffix: 60 Power # Omu
   components:
   - type: Machine
     board: MachineGCSHighCircuitboard
   - type: FireControlServer
-    processingPower: 20
+    processingPower: 60
   - type: ApcPowerReceiver
     powerLoad: 2500
   - type: PowerCharge
@@ -105,11 +108,12 @@
   id: GunneryServerUltra
   parent: [GunneryServerBase]
   name: ultra-high-power gunnery control server
+  suffix: 90 Power # Omu
   components:
   - type: Machine
     board: MachineGCSUltraCircuitboard
   - type: FireControlServer
-    processingPower: 30
+    processingPower: 90
   - type: ApcPowerReceiver
     powerLoad: 5000
   - type: PowerCharge
@@ -117,6 +121,44 @@
     idlePower: 1000
     activePower: 5000
     chargeRate: 0.008 # ~2 minutes
+
+- type: entity
+  id: GunneryServerOmega
+  parent: [GunneryServerBase]
+  name: omega-high-power gunnery control server
+  components:
+  - type: Machine
+    board: MachineGCSUltraCircuitboard
+  - type: FireControlServer
+    processingPower: 500
+  - type: PowerCharge
+    windowTitle: gravity-generator-window-title
+    idlePower: 1000
+    activePower: 5000
+    chargeRate: 0.008 # ~2 minutes
+  - type: ApcPowerReceiver
+    powerLoad: 4000
+  - type: Anchorable # Sorry Flyssa, but I am NOT risking this being used for a missile bus.
+    flags: Anchorable
+
+- type: entity
+  id: GunneryServerStation
+  parent: [GunneryServerBase]
+  name: station gunnery control server
+  components:
+  - type: Machine
+    board: MachineGCSStationCircuitboard
+  - type: FireControlServer
+    processingPower: 3000
+  - type: ApcPowerReceiver
+    powerLoad: 5000
+  - type: PowerCharge
+    windowTitle: gravity-generator-window-title
+    idlePower: 1000
+    activePower: 5000
+    chargeRate: 0.008 # ~2 minutes
+  - type: Anchorable
+    flags: Anchorable
 
 # Monolith : Gunnery Computer
 - type: entity
