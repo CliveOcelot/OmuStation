@@ -1,12 +1,6 @@
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Robust.Shared.Map;
 using Robust.Shared.Serialization;
-using Content.Shared._NF.Shuttles.Events;
+using Content.Shared._NF.Shuttles.Events; // Frontier - InertiaDampeningMode access
 
 namespace Content.Shared.Shuttles.BUIStates;
 
@@ -29,14 +23,13 @@ public sealed class NavInterfaceState
 
     public bool RotateWithEntity = true;
 
-    // Frontier fields
-
     /// <summary>
     /// Custom display names for network port buttons.
     /// Key is the port ID, value is the display name.
     /// </summary>
-    public Dictionary<string, string> NetworkPortNames;
+    public Dictionary<string, string> NetworkPortNames = new();
 
+    // Frontier fields
     /// <summary>
     /// Frontier - the state of the shuttle's inertial dampeners
     /// </summary>
@@ -51,15 +44,20 @@ public sealed class NavInterfaceState
     /// Frontier: settable coordinate visibility
     /// </summary>
     public bool HideCoords = false;
-
     // End Frontier fields
+
+    public bool Pannable = true; // Mono
+    public bool RelativePanning = false; // Mono
+
     public NavInterfaceState(
         float maxRange,
         NetCoordinates? coordinates,
         Angle? angle,
         Dictionary<NetEntity, List<DockingPortState>> docks,
-        InertiaDampeningMode dampeningMode, // Frontier
-        Dictionary<string, string>? networkPortNames = null)
+        InertiaDampeningMode dampeningMode, // Frontier: add dampeningMode
+        Dictionary<string, string>? networkPortNames = null,
+        bool pannable = true, // Mono
+        bool relativePan = false) // Mono
     {
         MaxRange = maxRange;
         Coordinates = coordinates;
@@ -67,6 +65,8 @@ public sealed class NavInterfaceState
         Docks = docks;
         DampeningMode = dampeningMode; // Frontier
         NetworkPortNames = networkPortNames ?? new Dictionary<string, string>();
+        Pannable = pannable; // Mono
+        RelativePanning = relativePan; // Mono
     }
 }
 
