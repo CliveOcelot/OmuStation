@@ -4,7 +4,7 @@
   weights:
     LoneOperative: 1
     ShuttleInstigator: 0.8
-    VoxRaiders: 0.8
+    #VoxRaiders: 0.8 # Omu, disable this.
     #GreyTide: 0.65
     #TODO When Slasher is ready Slasher: 0.6 # Goobstation
     Blob: 0.5
@@ -30,10 +30,10 @@
   announcement: terror-blob
   rule: BlobSpawn
 
-- type: ninjaHackingThreat
-  id: VoxRaiders
-  announcement: terror-vox
-  rule: VoxRaidersMidround
+#- type: ninjaHackingThreat # Omu, disable this.
+#  id: VoxRaiders
+#  announcement: terror-vox
+#  rule: VoxRaidersMidround
 
 - type: ninjaHackingThreat
   id: LaughterDemon
