@@ -207,7 +207,7 @@
     #- id: DarkLordMidround # Goobstation - New Midrounds
     - id: MimeAssassinMidround # Goobstation - New Midrounds
     #- id: DarkPriestMidround # Goobstation - New Midrounds -- Omu Change Removed
-    - id: VoxRaidersMidround # Goobstation - New Midrounds
+    #- id: VoxRaidersMidround # Goobstation - New Midrounds # Omu, disable this.
     - id: TunnelClownMidround # Goobstation
     #- id: WraithMidround # Goobstation - Wraith
     #TODO when midrounds are "reviewed" by the chudmins add them back
