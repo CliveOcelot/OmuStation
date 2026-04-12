@@ -579,6 +579,26 @@ public abstract partial class SharedGunSystem : EntitySystem
             projectile.TargetCoordinates = targetCoordinates.Value; // Goobstation
     }
 
+    // Mono
+    public DamageSpecifier GetNextDamage(Entity<GunComponent?> gun)
+    {
+        if (!TryNextShootPrototype(gun, out var shoot))
+            return new();
+
+        return GetBulletDamage(shoot);
+    }
+
+    // Mono
+    public DamageSpecifier GetBulletDamage(EntityPrototype bullet)
+    {
+        var shoot = GetBulletPrototype(bullet);
+        //if (shoot.TryGetComponent<HitscanBasicDamageComponent>(out var hitscan, Factory))
+        //    return hitscan.Damage;
+        if (shoot.TryGetComponent<ProjectileComponent>(out var proj, Factory))
+            return proj.Damage;
+        return new();
+    }
+
     protected abstract void Popup(string message, EntityUid? uid, EntityUid? user);
 
     /// <summary>

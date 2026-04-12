@@ -72,10 +72,14 @@ namespace Content.Server.Destructible
         [Dependency] public readonly IPrototypeManager PrototypeManager = default!;
         [Dependency] public readonly IAdminLogManager _adminLogger = default!;
 
+        // Mono
+        private EntityQuery<DestructibleComponent> _destructibleQuery;
+
         public override void Initialize()
         {
             base.Initialize();
             SubscribeLocalEvent<DestructibleComponent, DamageChangedEvent>(Execute);
+            _destructibleQuery = GetEntityQuery<DestructibleComponent>();
         }
 
         /// <summary>
@@ -139,7 +143,7 @@ namespace Content.Server.Destructible
         public bool TryGetDestroyedAt(Entity<DestructibleComponent?> ent, [NotNullWhen(true)] out FixedPoint2? destroyedAt)
         {
             destroyedAt = null;
-            if (!Resolve(ent, ref ent.Comp, false))
+            if (!_destructibleQuery.TryComp(ent, out ent.Comp)) // Mono
                 return false;
 
             destroyedAt = DestroyedAt(ent, ent.Comp);
