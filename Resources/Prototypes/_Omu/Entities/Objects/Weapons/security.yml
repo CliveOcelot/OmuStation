@@ -5,6 +5,7 @@
   suffix: Abductor
   description: An ultrabright flashbulb with a trigger, which causes the victim to be dazed and lose their eyesight for a moment. Alien technology allows it to flash countless times.
   components:
+    - type: AbductorItem # Omu
     # Goobstation edit start
     - type: EmitSoundOnPickup
       sound:

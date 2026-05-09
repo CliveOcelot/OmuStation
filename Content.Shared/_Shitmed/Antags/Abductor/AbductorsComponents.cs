@@ -9,6 +9,7 @@ using Robust.Shared.GameStates;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Audio;
+using Content.Shared._Omu.Abductor; // Omu
 
 namespace Content.Shared._Shitmed.Antags.Abductor;
 
@@ -59,7 +60,7 @@ public sealed partial class AbductorGizmoComponent : Component
     public NetEntity? Target;
 }
 
-[RegisterComponent, NetworkedComponent, Access(typeof(SharedAbductorSystem))]
+[RegisterComponent, NetworkedComponent, Access(typeof(SharedAbductorSystem), typeof(SharedOmuAbductorSystem))] // Omu, allow Omu's abductor system to see this.
 public sealed partial class AbductorComponent : Component
 {
 }

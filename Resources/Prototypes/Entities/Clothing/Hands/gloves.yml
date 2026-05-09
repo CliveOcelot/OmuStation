@@ -405,6 +405,7 @@
   name: combat gloves
   description: These tactical gloves are fireproof and shock resistant.
   components:
+  - type: AbductorItem # Omu
   - type: Sprite
     sprite: Clothing/Hands/Gloves/combat.rsi
   - type: Clothing

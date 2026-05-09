@@ -38,6 +38,8 @@
     magState: mag
     steps: 5
     zeroVisible: true
+  - type: AbductorItem # Omu
+
 
 - type: entity
   parent: [BaseWeaponBattery, BaseGunWieldable, BaseMajorContraband]
@@ -69,3 +71,4 @@
     magState: mag
     steps: 5
     zeroVisible: true
+  - type: AbductorItem # Omu

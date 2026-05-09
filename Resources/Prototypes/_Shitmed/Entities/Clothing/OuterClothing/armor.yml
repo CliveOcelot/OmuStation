@@ -14,6 +14,7 @@
   id: ClothingOuterArmorAbductor
   name: agent vest
   components:
+  - type: AbductorItem # Omu
   - type: Sprite
     sprite: _Shitmed/Clothing/OuterClothing/Armor/abductor.rsi
   - type: AbductorVest
@@ -103,6 +104,7 @@
   name: alien lab coat
   description: A suit of alien origin that protects from various injuries, as well as from chemical spills.
   components:
+  - type: AbductorItem # Omu
   - type: Sprite
     sprite: _Shitmed/Clothing/OuterClothing/Coats/abductor.rsi
   - type: Clothing

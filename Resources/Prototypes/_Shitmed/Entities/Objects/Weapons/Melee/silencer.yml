@@ -41,3 +41,4 @@
     - ReagentId: MuteToxin
       Quantity: 5
     limit: 10
+  - type: AbductorItem # Omu

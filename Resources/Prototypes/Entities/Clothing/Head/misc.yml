@@ -201,6 +201,7 @@
   name: head mirror
   description: I doubt even the CMO knows how to use this thing.
   components:
+  - type: AbductorItem # Omu
   - type: Sprite
     sprite: Clothing/Head/Misc/head_mirror.rsi
   - type: Clothing

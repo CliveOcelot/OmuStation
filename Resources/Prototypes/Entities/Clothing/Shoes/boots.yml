@@ -158,6 +158,7 @@
   name: combat boots
   description: Robust combat boots for combat scenarios or combat situations. All combat, all the time.
   components:
+  - type: AbductorItem # Omu
   - type: Sprite
     sprite: Clothing/Shoes/Boots/combatboots.rsi
   - type: Clothing

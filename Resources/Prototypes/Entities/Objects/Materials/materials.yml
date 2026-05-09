@@ -430,6 +430,7 @@
   name: biomass
   suffix: Full
   components:
+  - type: AbductorItem # Omu
   - type: Material
   - type: PhysicalComposition
     materialComposition:

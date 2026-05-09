@@ -16,6 +16,7 @@
   description: A highly advanced retractor, it also seems to work like a hemostat.
   parent: [BaseToolSurgery, BaseMajorContraband]
   components:
+  - type: AbductorItem # Omu
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/cautery.rsi
     state: abductor
@@ -69,6 +70,7 @@
   id: SearingToolAbductor
   parent: [BaseToolSurgery, BaseMajorContraband]
   components:
+  - type: AbductorItem # Omu
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/drill.rsi
     state: abductor
@@ -104,6 +106,7 @@
   id: EnergyScalpelAbductor
   parent: [BaseToolSurgery, BaseMajorContraband]
   components:
+  - type: AbductorItem # Omu
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/scalpel.rsi
     state: abductor
@@ -141,6 +144,7 @@
   description: A highly advanced tool, capable of mending bones.
   parent: [BaseToolSurgery, BaseMajorContraband]
   components:
+    - type: AbductorItem # Omu
     - type: Sprite
       sprite: _Shitmed/Objects/Specific/Medical/Surgery/bonesetter.rsi
       state: abductor

@@ -15,6 +15,7 @@
   id: Wonderprod
   description: Universal tool of the abductor agent.
   components:
+  - type: AbductorItem # Omu
   - type: Item
     sprite: _Shitmed/Objects/Weapons/Melee/wonderprod.rsi
     heldPrefix: stun
