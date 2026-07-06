@@ -5,7 +5,7 @@ meta:
   forkId: ""
   forkVersion: ""
   time: 05/03/2026 11:45:06
-  entityCount: 11120
+  entityCount: 11118
 maps: []
 grids:
 - 1668
@@ -26959,20 +26959,6 @@ entities:
     components:
     - type: Transform
       pos: -20.5,33.5
-      parent: 1668
-- proto: CrateFunClownCarCargo
-  entities:
-  - uid: 1938
-    components:
-    - type: Transform
-      pos: -20.5,36.5
-      parent: 1668
-- proto: CrateFunClownCarNukieUplink
-  entities:
-  - uid: 1963
-    components:
-    - type: Transform
-      pos: -30.5,36.5
       parent: 1668
 - proto: CrateFunFoamGuns
   entities:
