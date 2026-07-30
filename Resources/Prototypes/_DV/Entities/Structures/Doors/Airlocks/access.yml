@@ -6,3 +6,11 @@
   components:
   - type: PriorityDock
     tag: DockShipyard
+
+- type: entity
+  parent: AirlockExternalGlassShuttleMining
+  id: AirlockExternalGlassShuttleGlacierFilled
+  suffix: Glacier, Filled, Locked
+  components:
+  - type: GridFill
+    path: /Maps/_DV/Shuttles/Misc/glacier_surface_shuttle.yml

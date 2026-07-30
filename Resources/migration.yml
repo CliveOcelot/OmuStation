@@ -149,7 +149,7 @@
 AirlockBoxerGlassLocked: AirlockServiceGlassLocked
 AirlockClownGlassLocked: AirlockServiceGlassLocked
 AirlockClownLocked: AirlockServiceGlassLocked
-AirlockCorpsmanGlassLocked: AirlockServiceGlassLocked
+#AirlockCorpsmanGlassLocked: AirlockServiceGlassLocked # Omu
 #AirlockExternalGlassShuttleShipyard: AirlockExternalGlassLocked #Omu
 AirlockMailGlassLocked: AirlockCargoGlassLocked
 AirlockMaintMailLocked: AirlockMaintCargoLocked
@@ -228,7 +228,7 @@ LockerForensicMantisFilled: null
 LunchboxSecurityFilledRandom: null
 MagazineBoxSpecialPractice: null
 MetempsychoticMachine: null
-Oracle: null
+#Oracle: null # Omu
 PaintingMothBigCatch: null
 PaintingSpoon: null
 PlushieMothMusician: null
@@ -269,7 +269,7 @@ ReverseEngineeringMachine: null
 Roboisseur: null
 SalvagePartsSpawnerLow: null
 SalvagePartsSpawnerMid: null
-SecBreachingHammer: null
+#SecBreachingHammer: null # Omu
 Shinai: null
 ShockCollar: null
 shuttle_manipulator: null
@@ -1139,3 +1139,9 @@ DVSmartFridgeMedical: SmartFridgeMedical
 
 # 2026-01-10 Goobstation Change Mapped Chem to Energy Chem by default
 # ChemDispenser: EnergyChemDispenser #omu edit
+
+AirlockChiefJusticeLocked: AirlockLawyerLocked # Omu
+AirlockClerkGlassLocked: AirlockLawyerLocked # Omu
+AirlockJusticeGlass: AirlockGlass
+AirlockLibraryGlassLocked: AirlockServiceGlassLocked
+AirlockLibraryLocked: AirlockServiceLocked
