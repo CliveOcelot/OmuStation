@@ -23,6 +23,7 @@ public abstract class SharedJetpackSystem : EntitySystem
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly ActionContainerSystem _actionContainer = default!;
     [Dependency] private readonly StandingStateSystem _standing = default!; // Goobstation
+    [Dependency] private readonly SharedGravitySystem _gravity = default!;
 
     public override void Initialize()
     {
@@ -76,7 +77,7 @@ public abstract class SharedJetpackSystem : EntitySystem
         while (query.MoveNext(out var uid, out var user, out var transform))
         {
             if (transform.GridUid == gridUid && ev.HasGravity &&
-                jetpackQuery.TryGetComponent(user.Jetpack, out var jetpack))
+                jetpackQuery.TryGetComponent(user.Jetpack, out var jetpack) && !_gravity.IsWeightless(uid)) // Omu add IsWeightless
             {
                 _popup.PopupClient(Loc.GetString("jetpack-to-grid"), uid, uid);
 
@@ -104,7 +105,7 @@ public abstract class SharedJetpackSystem : EntitySystem
     private void OnJetpackUserEntParentChanged(EntityUid uid, JetpackUserComponent component, ref EntParentChangedMessage args)
     {
         if (TryComp<JetpackComponent>(component.Jetpack, out var jetpack) &&
-            !CanEnableOnGrid(args.Transform.GridUid))
+            !CanEnableOnGrid(args.Transform.GridUid) && !_gravity.IsWeightless(uid)) // Omu add IsWeightless
         {
             SetEnabled(component.Jetpack, jetpack, false, uid);
 
