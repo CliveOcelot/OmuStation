@@ -143,6 +143,7 @@
         - SheetPlasma
         - Plastic # Goobstation End
         - Ingot #OMU
+        - Diamond # Omu
         # </Goobstation
   - type: Lathe
     idleState: icon
