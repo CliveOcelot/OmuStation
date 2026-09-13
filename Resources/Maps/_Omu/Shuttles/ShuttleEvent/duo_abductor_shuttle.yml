@@ -32,6 +32,8 @@ entities:
     - type: OccluderTree
   - uid: 2
     components:
+    - type: IFF
+      flags: HideLabel
     - type: MetaData
       name: grid
     - type: Transform
@@ -702,7 +704,7 @@ entities:
     - type: Transform
       pos: -3.7265432,1.5118785
       parent: 2
-- proto: ComputerIFF
+- proto: BaseComputer
   entities:
   - uid: 94
     components:
