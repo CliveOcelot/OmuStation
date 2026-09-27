@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared.Tag;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
@@ -9,7 +10,7 @@ namespace Content.Goobstation.Shared.Changeling.Components;
 /// Marks an entity as a changeling, and holds generic changeling data.
 /// For the component holding more complex changeling data, see ChangelingIdentityComponent.
 /// </summary>
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState] // Omu, add AutoGenerateComponentState
 public sealed partial class ChangelingComponent : Component
 {
     /// <summary>
@@ -26,4 +27,14 @@ public sealed partial class ChangelingComponent : Component
 
     [DataField]
     public string MindswapText = "changeling"; // only used for mindswap attempts
+
+    // Omu start
+    [DataField, AutoNetworkedField]
+    public List<string> Messages = ["Our body rejects the use of this weapon!"];
+
+    public TimeSpan LastPopup;
+
+    [DataField, AutoNetworkedField]
+    public List<ProtoId<TagPrototype>> BypassTags = [];
+    // Omu end
 }
