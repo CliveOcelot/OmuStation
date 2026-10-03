@@ -1,0 +1,13 @@
+- type: entity
+  id: ActionActivatePersonalShield
+  name: Activate personal shield
+  description: "Activates suit's personal energy shield that slowly consumes battery charge."
+  components:
+  - type: Action # Omu, add this so it has a sprite
+    useDelay: 1
+    priority: 3
+    icon:
+      sprite: _Goobstation/Wizard/Icons/spellblade.rsi # Placeholder, but works for now
+      state: shield
+  - type: InstantAction
+    event: !type:PersonalShieldActionEvent

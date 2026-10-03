@@ -234,7 +234,8 @@ namespace Content.Shared.Damage
             TargetBodyPart? targetPart = null,
             bool ignoreBlockers = false,
             SplitDamageBehavior splitDamage = SplitDamageBehavior.Split,
-            bool canMiss = true)
+            bool canMiss = true,
+            EntityUid? tool = null) // Mono, add tool
         {
             if (!uid.HasValue || !_damageableQuery.Resolve(uid.Value, ref damageable, false))
             {
@@ -259,7 +260,7 @@ namespace Content.Shared.Damage
             vitalDamage.TrimZeros();
             // Goobstation end
 
-            var before = new BeforeDamageChangedEvent(damage, origin, canBeCancelled, targetPart); // Shitmed Change
+            var before = new BeforeDamageChangedEvent(damage, origin, canBeCancelled, targetPart, Tool: tool); // Shitmed Change // Mono, add Tool
             RaiseLocalEvent(uid.Value, ref before);
 
             if (before.Cancelled)
@@ -975,7 +976,11 @@ namespace Content.Shared.Damage
         EntityUid? Origin = null,
         bool CanBeCancelled = false, // Shitmed Change
         TargetBodyPart? TargetPart = null, // Shitmed Change
-        bool Cancelled = false);
+        bool Cancelled = false,
+        EntityUid? Tool = null) : IInventoryRelayEvent // Mono: early shield interception
+    {
+        public SlotFlags TargetSlots => ~SlotFlags.POCKET;
+    }
 
     /// <summary>
     ///     Raised on an entity when damage is about to be dealt,

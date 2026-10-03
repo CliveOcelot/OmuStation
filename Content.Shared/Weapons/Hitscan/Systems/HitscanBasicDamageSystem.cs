@@ -22,7 +22,7 @@ public sealed class HitscanBasicDamageSystem : EntitySystem
 
         var dmg = ent.Comp.Damage * _damage.UniversalHitscanDamageModifier;
 
-        var damageDealt = _damage.TryChangeDamage(args.Data.HitEntity, dmg, origin: args.Data.Gun);
+        var damageDealt = _damage.TryChangeDamage(args.Data.HitEntity, dmg, origin: args.Data.Gun, tool: ent.Owner); // Mono - pass tool
 
         if (damageDealt == null)
             return;

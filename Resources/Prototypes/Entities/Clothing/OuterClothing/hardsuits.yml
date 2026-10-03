@@ -667,7 +667,7 @@
 
 #Research Director's Hardsuit
 - type: entity
-  parent: [ClothingOuterHardsuitBase, BaseGrandTheftContraband]
+  parent: [ClothingOuterHardsuitBase, BaseGrandTheftContraband, MonoEnergyShieldClothing] # Omu, add shield to it
   id: ClothingOuterHardsuitRd
   name: sophia research hardsuit # Omu edit
   description: One of the few remaining research hardsuits from now destroyed Regalis sector. Designed to protect against hazardous, low pressure environments. Old but reliable. # Omu edit
@@ -717,6 +717,32 @@
     knockdownTimeDelta: -3
   - type: StaminaResistance # Goobstation /// OMU - Buffed to modsuit levels
     damageCoefficient: 0.5
+  - type: PersonalShield # Omu start
+    visuals:
+      fillLevel: 0.2
+      hexDensity: 6
+      pixelGrid: 192
+      color: "#D381C9"
+      scale: 2.3
+    shield:
+      maxCharge: 400
+      regenRate: 5
+      spinupTime: 2.5
+      breakCooldown: 20
+      powerDraw: 0.5
+      blockModifier:
+        coefficients:
+          Piercing: 0.5
+          Heat: 1.5
+          Radiation: 2.5
+          Shock: 2.5
+  - type: Battery
+    maxCharge: 100
+    startingCharge: 100
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 5
+    autoRechargePauseTime: 5 # Omu end
 
 #Head of Security's Hardsuit, heavily edited by goob
 - type: entity
