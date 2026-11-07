@@ -63,6 +63,7 @@
   - ClothingNeckCloakProgressPride
   - ClothingNeckEnsembleTrans
   - ClothingNeckCloakTrans
+  - ClothingNeckCloakPlural
   - ClothingNeckCloakGenderfluid
   - ClothingNeckCloakAro
   - ClothingNeckCloakAce
@@ -84,6 +85,7 @@
   - ClothingNeckScarfStripedRainbow
   - ClothingNeckScarfStripedTrans
   - ClothingNeckScarfStripedGenderfluid
+  - ClothingNeckScarfStripedPlural
   - ClothingNeckChameleonPride
   - BarberScissors
   - ClothingNeckUnathiMantle
@@ -226,6 +228,7 @@
   - CaptainMantle
   - CaptainCloakLong # Ganimed14
   - VeteranCaptainCloak # goob
+  - CaptainOffcoat # Omu
   - CaptainEnsemble # goob
 
 - type: loadoutGroup
@@ -283,6 +286,7 @@
   - HoPCloak
   - HoPMantle
   - HoPCloakLong # Ganimed14
+  - HeadofPersonnelOffcoat # Omu
   - HeadOfPersonnelEnsemble # goob
 
 - type: loadoutGroup
@@ -480,12 +484,12 @@
   - ChefJacket
   - ChefWintercoat
 
-- type: loadoutGroup
-  id: ChefJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
-  loadouts:
-  - LizardPlushieChef
+#- type: loadoutGroup # Omu
+#  id: ChefJobTrinkets
+#  name: loadout-group-jobtrinkets
+#  minLimit: 0
+#  loadouts:
+#  - LizardPlushieChef
 
 - type: loadoutGroup
   id: LibrarianJumpsuit
@@ -923,6 +927,7 @@
   - QuartermasterCloak
   - QuartermasterMantle
   - QuartermasterCloakLong #Ganimed14
+  - QuartermasterOffcoat # Omu
   - QuartermasterEnsemble # goob
 
 - type: loadoutGroup
@@ -968,17 +973,17 @@
   - CargoTechnicianJumpsuit
   - CargoTechnicianJumpskirt
   - CargoTechnicianOveralls #Goob
+  - CargoTechMJ # goob
   # OmuStation Start
   - CargoTechnicianSweater
   - CargoTechnicianSweaterSkirt
   - CargoTechnicianShortPantsIfuckinghateyouifyouwearthisbtw
   - CargoTechnicianShortSkirtsInsteadofPants
   - CargoTechnicianUniformTopInsteadOfJumpsuit
-  # OmuStation End
   #- CargoTechnicianJumpsuitMail # Goob/DeltaV - Mail # Omu - Moved to courier
   #- CargoTechnicianJumpskirtMail # Goob/DeltaV - Mail # Omu - Moved to courier
-  - CargoTechMJ # goob
-  - MailCarrierMJ #Goob
+  #- MailCarrierMJ # Omu courier
+  # OmuStation End
 
 - type: loadoutGroup
   id: CargoTechnicianBackpack
@@ -1082,6 +1087,8 @@
   - ClothingNeckCloakGreenCe # goob
   - ClothingNeckMantleWhiteCE # goob
   - ClothingNeckMantleOrangeCE # goob
+  - ChiefEngineerWhiteOffcoat #Omu
+  - ChiefEngineerGreenOffcoat #Omu
   - ClothingNeckEnsembleChiefEngineerWhite # goob
   - ClothingNeckEnsembleChiefEngineerGreen # goob
 
@@ -1272,6 +1279,7 @@
   - ResearchDirectorCloak
   - ResearchDirectorDecoratedCloak
   - ResearchDirectorCloakLong #Ganimed14
+  - ResearchDirectorOffcoat #Omu
   - ResearchDirectorEnsemble # goob
 
 - type: loadoutGroup
@@ -1454,6 +1462,7 @@
   - HeadofSecurityMantle
   - Bodycam # Goobstation - Body cameras
   - HeadofSecurityCloakLong #Ganimed14
+  - HeadofSecurityOffcoat # Omu
   - HeadOfSecurityEnsemble # goob
 
 - type: loadoutGroup
@@ -1732,6 +1741,7 @@
   - ChiefMedicalOfficerModernMantle # Omu
   - ChiefMedicalOfficerShawl #DV
   - ChiefMedicalOfficerOverShoulder #DV
+  - ChiefMedicalOfficerOffcoat # Omu
   - ChiefMedicalOfficerCloakLong #Ganimed14
   - ChiefMedicalOfficerEnsemble # goob
 
@@ -2026,6 +2036,35 @@
   minLimit: 0
   loadouts:
   - LizardPlushiePsychologist
+
+- type: loadoutGroup
+  id: TramDriverJumpsuit
+  name: loadout-group-tramdriver-jumpsuit
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - TramDriverJumpsuit
+
+- type: loadoutGroup
+  id: TramDriverOuterClothing
+  name: loadout-group-tramdriver-outerclothing
+  minLimit: 0
+  loadouts:
+  - TramDriverSuit
+
+- type: loadoutGroup
+  id: TramDriverHat
+  name: loadout-group-tramdriver-hat
+  loadouts:
+  - TramDriverHat
+
+- type: loadoutGroup
+  id: TramDriverGloves
+  name: loadout-group-tramdriver-gloves
+  minLimit: 0
+  loadouts:
+  - TramDriverGlovesWhite
+  - TramDriverGlovesBlack
 
 # Other
 - type: loadoutGroup
