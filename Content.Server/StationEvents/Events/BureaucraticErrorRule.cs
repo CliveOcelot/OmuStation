@@ -69,6 +69,9 @@ public sealed class BureaucraticErrorRule : StationEventSystem<BureaucraticError
                 // Adjust slots with smaller, more balanced changes
                 var adjustment = RobustRandom.Next(-1, 2); // -1, 0, or +1
                 var newSlots = Math.Max(1, currentSlots.Value + adjustment);
+                if (newSlots == currentSlots.Value) { // Omu start, if picked and it would be changed by 0, instead increase it.
+                        var newSlots = Math.Max(1, currentSlots.Value + 1);
+                } // Omu end
                 _stationJobs.TrySetJobSlot(chosenStation.Value, job, newSlots);
                 _chat.SendAdminAlert($"Bureaucratic Error: Changed {job} slots from {currentSlots} to {newSlots}");
                 _adminLog.Add(LogType.AdminMessage, LogImpact.Low, $"Bureaucratic Error: Changed {job} slots from {currentSlots} to {newSlots}");
@@ -89,6 +92,9 @@ public sealed class BureaucraticErrorRule : StationEventSystem<BureaucraticError
                 {
                     var adjustment = RobustRandom.Next(-1, 2); // -1, 0, or +1
                     var newSlots = Math.Max(1, currentSlots.Value + adjustment);
+                    if (newSlots == currentSlots.Value) { // Omu start, if picked and it would be changed by 0, instead increase it.
+                        var newSlots = Math.Max(1, currentSlots.Value + 1);
+                    } // Omu end
                     _stationJobs.TrySetJobSlot(chosenStation.Value, chosenJob, newSlots);
                     _chat.SendAdminAlert($"Bureaucratic Error: Changed {chosenJob} slots from {currentSlots} to {newSlots}");
                     _adminLog.Add(LogType.AdminMessage, LogImpact.Low, $"Bureaucratic Error: Changed {chosenJob} slots from {currentSlots} to {newSlots}");
