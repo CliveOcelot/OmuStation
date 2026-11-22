@@ -261,7 +261,7 @@ public sealed partial class DevilSystem : EntitySystem
             return;
 
         _popup.PopupEntity(Loc.GetString("devil-exorcised", ("target", Name(devil))), devil, PopupType.LargeCaution);
-        _condemned.StartCondemnation(target, behavior: CondemnedBehavior.Banish, doFlavor: false);
+        _condemned.StartCondemnation(target, behavior: CondemnedBehavior.Delete, doFlavor: false); // Omu, no second chances if you get banished.
 
     }
 
